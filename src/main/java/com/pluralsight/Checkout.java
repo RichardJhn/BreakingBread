@@ -13,6 +13,9 @@ public class Checkout {
                     ==========Checkout=========
                     1) Confirm
                     0) Cancel
+                    ============================
+                    Please make your choice
+                    ============================
                     """);
             //to do - determine whether to take user back to home screen or order screen after confirm and cancel
 
@@ -23,8 +26,9 @@ public class Checkout {
                     //placeholder for Confirm
                     break;
                 case "2":
+                    System.out.println("Cancelling Order");
                     //placeholder for cancel
-                    break;
+                    return;
                 default:
                     System.out.println("Error!");
             }

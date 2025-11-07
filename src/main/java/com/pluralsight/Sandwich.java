@@ -48,6 +48,8 @@ public class Sandwich extends Items {
         this.toppings = toppings;
     }
 
+    //to do - add different prices for different sizes
+
     public double price(){
 
         //returning 0 until i do my calculations
