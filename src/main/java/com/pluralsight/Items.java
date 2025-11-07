@@ -5,8 +5,8 @@ public abstract class Items {
     //to do - make this a parent class
     //make all menu items a child of this abbstract class
 
-    protected String itemName;
-    protected double itemPrice;
+    String itemName;
+    double itemPrice;
 
     public Items(String itemName, double itemPrice){
         this.itemName = itemName;

@@ -1,10 +1,13 @@
 package com.pluralsight;
+import java.util.ArrayList;
 import java.util.Scanner;
 public class OrderScreen {
     Scanner scanner = new Scanner(System.in);
+
     public void loadOrderScreen(){
         HomeScreen homeScreen = new HomeScreen();
         Checkout checkout = new Checkout();
+        ArrayList<Items> items = new ArrayList<>();
 
         //to do - make code less cryptic if possible
 
@@ -28,9 +31,12 @@ public class OrderScreen {
             switch(choice.toString()){
                 case "1":
                 case "2":
+
                 case "3":
+
                 case "4":
                     checkout.displayCheckout();
+                    break;
 
                 case "0":
                     System.out.println("Cancelling order and returning to Home Menu");
@@ -40,6 +46,5 @@ public class OrderScreen {
             }
 
         }
-
     }
 }
