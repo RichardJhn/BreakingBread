@@ -5,6 +5,7 @@ public class HomeScreen {
     //to do- make Order menu then move it here to make it neat
     public void displayHomeScreen() {
         Scanner scanner = new Scanner(System.in);
+        OrderScreen orderScreen = new OrderScreen();
 
         String choice = "";
         while (!choice.equalsIgnoreCase("0")) {
@@ -21,6 +22,7 @@ public class HomeScreen {
 
             switch (choice.toString()) {
                 case "1":
+                    orderScreen.loadOrderScreen();
                     break;
 
                 case "0":

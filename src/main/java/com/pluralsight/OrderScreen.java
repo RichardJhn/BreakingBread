@@ -3,6 +3,9 @@ import java.util.Scanner;
 public class OrderScreen {
     Scanner scanner = new Scanner(System.in);
     public void loadOrderScreen(){
+        HomeScreen homeScreen = new HomeScreen();
+
+        //to do - make code less cryptic if possible
 
         String choice = "";
         while (!choice.equalsIgnoreCase("0")){
@@ -19,6 +22,7 @@ public class OrderScreen {
                     """);
 
             choice = scanner.nextLine().trim();
+            //to do - make add sandwhich and plan how i will be calculating toppings
 
             switch(choice.toString()){
                 case "1":
@@ -26,6 +30,8 @@ public class OrderScreen {
                 case "3":
                 case "4":
                 case "0":
+                    System.out.println("Cancelling order and returning to Home Menu");
+                    homeScreen.displayHomeScreen();
                 default:
                     System.out.println("Error!");
             }
