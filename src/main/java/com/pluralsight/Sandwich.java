@@ -1,7 +1,11 @@
 package com.pluralsight;
 
+import java.util.Scanner;
+
+import java.util.Scanner;
 public class Sandwich extends Items {
     //this will be a child class of Items as it will contain its name and price
+    Scanner scanner = new Scanner(System.in);
 
     private String size;
     private String bread;
@@ -50,19 +54,33 @@ public class Sandwich extends Items {
 
     //to do - add different prices for different sizes
 
+    String userInput = "";
+
     public double price(){
 
         //returning 0 until i do my calculations
         return 0;
     }
+    public double sandwichPrice() {
+        // make calculation for only the sandwhich price here maybe?
+        userInput = scanner.nextLine().trim();
 
-    @Override
-    public String toString() {  //format will be a place holder until i finish everything else
-        return "Sandwich{" +
-                "size='" + size + '\'' +
-                ", bread='" + bread + '\'' +
-                ", toasted=" + toasted +
-                ", toppings='" + toppings + '\'' +
-                '}';
+        switch (userInput) {
+            case "1":
+                itemPrice = 5.50;
+                break;
+            case "2":
+                itemPrice = 7.00;
+                break;
+            case "3":
+                itemPrice = 8.50;
+                break;
+            default:
+                System.out.println("Error");
+
+        }
+
+    return 0;
+
     }
 }
