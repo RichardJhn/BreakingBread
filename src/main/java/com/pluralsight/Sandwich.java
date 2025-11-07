@@ -53,16 +53,16 @@ public class Sandwich extends Items {
     }
     //to do - add different prices for different sizes
 
-    String userInput = "";
+    String userInput = scanner.nextLine().trim();
 
     public double price(){
 
         //returning 0 until i do my calculations
         return 0;
     }
+    
     public double sandwichPrice() {
         // make calculation for only the sandwhich price here maybe?
-        userInput = scanner.nextLine().trim();
 
         switch (userInput) {
             case "1":
@@ -81,7 +81,6 @@ public class Sandwich extends Items {
 
     }
     public double meatTopping(){
-        userInput = scanner.nextLine().trim();
         switch (userInput){
             case "1":
                 itemPrice = 1.00;
@@ -97,6 +96,7 @@ public class Sandwich extends Items {
         }
         return itemPrice;
     }
+
     public double extraMeat(){
         //adding extra toppings
         //to do - should i allow them to have more than 1 extra topping and keep adding the price?
@@ -112,6 +112,40 @@ public class Sandwich extends Items {
                 break;
             default:
                 System.out.println("error");
+        }
+        return itemPrice;
+    }
+
+    public double cheese(){
+        switch (userInput){
+            case "1":
+                itemPrice = .75;
+                break;
+            case "2":
+                itemPrice = 1.50;
+                break;
+            case "3":
+                itemPrice = 2.25;
+                break;
+            default:
+                System.out.println("Error!");
+        }
+        return itemPrice;
+    }
+
+    public double extraCheese(){
+        switch (userInput){
+            case "1":
+                itemPrice += .30;
+                break;
+            case "2":
+                itemPrice += .60;
+                break;
+            case "3":
+                itemPrice += .90;
+                break;
+            default:
+                System.out.println("Error!");
         }
         return itemPrice;
     }

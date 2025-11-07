@@ -31,14 +31,17 @@ public class Drink extends Items{
         switch (userInput){
             case "1":
                 itemPrice = 2.00;
+                break;
             case "2":
                 itemPrice = 2.50;
+                break;
             case "3":
                 itemPrice = 3.00;
+                break;
             default:
                 System.out.println("Error!");
         }
-        
+
         return itemPrice;
     }
 
