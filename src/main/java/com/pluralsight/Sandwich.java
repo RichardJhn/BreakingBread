@@ -51,7 +51,6 @@ public class Sandwich extends Items {
     public void setToppings(String toppings) {
         this.toppings = toppings;
     }
-
     //to do - add different prices for different sizes
 
     String userInput = "";
@@ -77,10 +76,23 @@ public class Sandwich extends Items {
                 break;
             default:
                 System.out.println("Error");
-
         }
-
-    return 0;
+    return itemPrice;
 
     }
+    public double toppingPrice(){
+        userInput = scanner.nextLine().trim();
+        switch (userInput){
+            case "1":
+                itemPrice = 1.00;
+            case "2":
+                itemPrice = 2.00;
+            case "3":
+                itemPrice = 3.00;
+            default:
+                System.out.println("Error");
+        }
+        return itemPrice;
+    }
+
 }
