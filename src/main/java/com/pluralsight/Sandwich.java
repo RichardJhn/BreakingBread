@@ -65,64 +65,64 @@ public class Sandwich extends Items {
         return 0;
     }
 
-    String userInput = ConsoleHelper.promptForString("hi");
-
     public double sandwichPrice() {
         // make calculation for only the sandwhich price here maybe?
         switch (size) {
             case "1":
-                itemPrice = 5.50;
-                break;
+                return  5.50;
             case "2":
-                itemPrice = 7.00;
-                break;
+                return  7.00;
             case "3":
-                itemPrice = 8.50;
-                break;
+                return  8.50;
             default:
-                System.out.println("Error");
+                return 0.00;
         }
-        return itemPrice;
 
     }
-    public double meatToppingPrice(){
+    public double meatToppingPrice(String size, int extraMeat){
         double basePrice = 0;
         double extraPrice = 0;
 
         switch (size){
             case "1":
-                itemPrice = 1.00;
+                basePrice = 1.00;
+                extraPrice = .50;
                 break;
             case "2":
-                itemPrice = 2.00;
+                basePrice = 2.00;
+                extraPrice = .60;
                 break;
             case "3":
-                itemPrice = 3.00;
+                basePrice = 3.00;
+                extraPrice = .90;
                 break;
             default:
-                System.out.println("Error");
+                return 0.00;
         }
-        return itemPrice;
+        return basePrice * (extraPrice * extraMeat);
     }
 
 
-    public double cheeseToppingPrice(){
+    public double cheeseToppingPrice(String size, int extraCheese){
         double basePrice = 0;
         double extraPrice = 0;
         switch (size){
             case "1":
-                itemPrice = .75;
+                basePrice = .75;
+                extraPrice = .30;
                 break;
             case "2":
-                itemPrice = 1.50;
+                basePrice = 1.50;
+                extraPrice = .60;
                 break;
             case "3":
-                itemPrice = 2.25;
+                basePrice = 2.25;
+                extraPrice = .90;
                 break;
             default:
-                System.out.println("Error!");
+                return 0.00;
         }
-        return itemPrice;
+        return basePrice * (extraPrice * extraCheese);
     }
 
 
