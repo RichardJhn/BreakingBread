@@ -14,6 +14,7 @@ public class Checkout {
                     1) Confirm
                     0) Cancel
                     """);
+            //to do - determine whether to take user back to home screen or order screen after confirm and cancel
 
             choice = scanner.nextLine();
 
