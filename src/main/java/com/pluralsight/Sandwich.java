@@ -9,6 +9,8 @@ public class Sandwich extends Items {
     private boolean toasted;
     private String toppings; //to do - find a way to have my list of toppings
 
+    //to do - make a menu screen for this class
+
     public Sandwich(String itemName, double itemPrice, String size, String bread, boolean toasted, String toppings) {
         super(itemName, itemPrice);
         this.size = size;
