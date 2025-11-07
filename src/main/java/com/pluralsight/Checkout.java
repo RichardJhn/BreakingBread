@@ -25,7 +25,7 @@ public class Checkout {
                 case "1":
                     //placeholder for Confirm
                     break;
-                case "2":
+                case "0":
                     System.out.println("Cancelling Order");
                     //placeholder for cancel
                     return;

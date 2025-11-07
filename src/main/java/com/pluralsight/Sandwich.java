@@ -113,7 +113,7 @@ public class Sandwich extends Items {
             default:
                 System.out.println("error");
         }
-        return 0;
+        return itemPrice;
     }
 
 

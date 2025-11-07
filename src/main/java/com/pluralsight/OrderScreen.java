@@ -4,6 +4,7 @@ public class OrderScreen {
     Scanner scanner = new Scanner(System.in);
     public void loadOrderScreen(){
         HomeScreen homeScreen = new HomeScreen();
+        Checkout checkout = new Checkout();
 
         //to do - make code less cryptic if possible
 
@@ -29,6 +30,8 @@ public class OrderScreen {
                 case "2":
                 case "3":
                 case "4":
+                    checkout.displayCheckout();
+
                 case "0":
                     System.out.println("Cancelling order and returning to Home Menu");
                     return;
