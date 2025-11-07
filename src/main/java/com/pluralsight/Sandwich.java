@@ -85,8 +85,11 @@ public class Sandwich extends Items {
         return itemPrice;
 
     }
-    public double meatTopping(){
-        switch (userInput){
+    public double meatToppingPrice(){
+        double basePrice = 0;
+        double extraPrice = 0;
+
+        switch (size){
             case "1":
                 itemPrice = 1.00;
                 break;
@@ -102,27 +105,11 @@ public class Sandwich extends Items {
         return itemPrice;
     }
 
-    public double extraMeat(){
-        //adding extra toppings
-        //to do - should i allow them to have more than 1 extra topping and keep adding the price?
-        switch (userInput){
-            case "1":
-                itemPrice += .50;
-                break;
-            case "2":
-                itemPrice += 1.00;
-                break;
-            case "3":
-                itemPrice += 1.50;
-                break;
-            default:
-                System.out.println("error");
-        }
-        return itemPrice;
-    }
 
-    public double cheese(){
-        switch (userInput){
+    public double cheeseToppingPrice(){
+        double basePrice = 0;
+        double extraPrice = 0;
+        switch (size){
             case "1":
                 itemPrice = .75;
                 break;
@@ -138,22 +125,6 @@ public class Sandwich extends Items {
         return itemPrice;
     }
 
-    public double extraCheese(){
-        switch (userInput){
-            case "1":
-                itemPrice += .30;
-                break;
-            case "2":
-                itemPrice += .60;
-                break;
-            case "3":
-                itemPrice += .90;
-                break;
-            default:
-                System.out.println("Error!");
-        }
-        return itemPrice;
-    }
 
 
 }
