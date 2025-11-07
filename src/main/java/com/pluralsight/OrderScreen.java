@@ -31,7 +31,7 @@ public class OrderScreen {
                 case "4":
                 case "0":
                     System.out.println("Cancelling order and returning to Home Menu");
-                    homeScreen.displayHomeScreen();
+                    return;
                 default:
                     System.out.println("Error!");
             }
