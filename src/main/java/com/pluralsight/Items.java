@@ -29,6 +29,7 @@ public abstract class Items {
         this.itemPrice = itemPrice;
     }
 
+    // Abstract method that forces subclasses to define how their price is calculated
     public abstract double price();
 
     @Override

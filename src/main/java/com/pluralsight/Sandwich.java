@@ -19,6 +19,14 @@ public class Sandwich extends Items {
         this.toasted = toasted;
         this.toppings = toppings;
     }
+    public Sandwich(){
+        super("Sandwich", 0.00);
+        this.size = size;
+        this.bread = bread;
+        this.toasted = toasted;
+        this.toppings = toppings;
+
+    }
 
     public String getSize() {
         return size;
@@ -60,7 +68,7 @@ public class Sandwich extends Items {
         //returning 0 until i do my calculations
         return 0;
     }
-    
+
     public double sandwichPrice() {
         // make calculation for only the sandwhich price here maybe?
 
@@ -77,7 +85,7 @@ public class Sandwich extends Items {
             default:
                 System.out.println("Error");
         }
-    return itemPrice;
+        return itemPrice;
 
     }
     public double meatTopping(){

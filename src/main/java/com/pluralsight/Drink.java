@@ -17,11 +17,9 @@ public class Drink extends Items{
     public double price(){
         //return 0 until i make the calculations
         Scanner scanner = new Scanner(System.in);
-        String userInput = scanner.nextLine().trim();
-        String choice = "";
-        while(!choice.equalsIgnoreCase("0")){
+
             System.out.print("What kind of Drink would you like: ");
-            flavor = userInput;
+            flavor = scanner.nextLine().trim();
             System.out.println("""
                     What size would you like?
                     ==========================
@@ -31,6 +29,7 @@ public class Drink extends Items{
                     ===========================
                     Please enter your option
                     ===========================""");
+        String userInput = scanner.nextLine().trim();
             switch (userInput) {
                 case "1":
                     itemPrice = 2.00;
@@ -44,7 +43,7 @@ public class Drink extends Items{
                 default:
                     System.out.println("Error!");
             }
-        }
+
 
         return itemPrice;
     }
@@ -53,7 +52,12 @@ public class Drink extends Items{
         this.flavor = flavor;
         this.size = size;
     }
-//adding to string just in case its needed
+    public Drink(){
+        super("Drink",0.00);
+        this.flavor = flavor;
+        this.size = size;
+    }
+    //adding to string just in case its needed
     @Override
     public String toString() {
         return String.format("%s| $%.2f |%s | %d | %s | %s | %s |",

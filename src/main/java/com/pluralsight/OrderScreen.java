@@ -8,6 +8,7 @@ public class OrderScreen {
         HomeScreen homeScreen = new HomeScreen();
         Checkout checkout = new Checkout();
         ArrayList<Items> items = new ArrayList<>();
+        Drink drink = new Drink();
 
         //to do - make code less cryptic if possible
 
@@ -30,9 +31,13 @@ public class OrderScreen {
 
             switch(choice.toString()){
                 case "1":
+                    break;
                 case "2":
+                    drink.price();
+                    break;
 
                 case "3":
+                    break;
 
                 case "4":
                     checkout.displayCheckout();

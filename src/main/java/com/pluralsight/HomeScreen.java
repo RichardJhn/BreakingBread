@@ -1,7 +1,7 @@
 package com.pluralsight;
 import java.util.Scanner;
 public class HomeScreen {
-     //will be using this class as my home screen
+    //will be using this class as my home screen
     //to do- make Order menu then move it here to make it neat
     public void displayHomeScreen() {
         Scanner scanner = new Scanner(System.in);
