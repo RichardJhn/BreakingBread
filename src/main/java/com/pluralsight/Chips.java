@@ -1,8 +1,12 @@
 package com.pluralsight;
 
+import java.util.Scanner;
+
+import java.util.Scanner;
 public class Chips extends Items {
     //chipType will be the brand or flavor they choose
      private String chipType;
+     Scanner scanner = new Scanner(System.in);
 
     public Chips(String itemName, double itemPrice, String chipType) {
         super(itemName, itemPrice);
@@ -14,7 +18,8 @@ public class Chips extends Items {
     }
     public double price(){
         //this will return 0 until i make the calculations
-        return 0;
+        itemPrice = 1.50;
+       return itemPrice;
     }
 //not sure if i need a to string here but will add just in case
     @Override
