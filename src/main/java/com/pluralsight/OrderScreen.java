@@ -1,14 +1,13 @@
 package com.pluralsight;
 import java.util.ArrayList;
-import java.util.Scanner;
 public class OrderScreen {
-    Scanner scanner = new Scanner(System.in);
 
     public void loadOrderScreen(){
         HomeScreen homeScreen = new HomeScreen();
         Checkout checkout = new Checkout();
         ArrayList<Items> items = new ArrayList<>();
         Drink drink = new Drink();
+        Chips chips = new Chips();
 
         //to do - make code less cryptic if possible
 
@@ -22,11 +21,9 @@ public class OrderScreen {
                     4) Checkout
                     0) Cancel Order
                     ============================
-                    Please Make your choice
-                    ============================
                     """);
 
-            choice = scanner.nextLine().trim();
+            choice = ConsoleHelper.promptForString("Please Make your choice");
             //to do - make add sandwhich and plan how i will be calculating toppings
 
             switch(choice.toString()){
@@ -37,6 +34,7 @@ public class OrderScreen {
                     break;
 
                 case "3":
+                    chips.price();
                     break;
 
                 case "4":

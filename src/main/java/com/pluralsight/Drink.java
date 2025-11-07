@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Drink extends Items{
     //will have my drink options
     //to do - determine how I will be adding flavors
+    //do not touch this class
     private String flavor;
     private String size;
 
@@ -61,7 +62,7 @@ public class Drink extends Items{
     @Override
     public String toString() {
         return String.format("%s| $%.2f |%s | %d | %s | %s | %s |",
-                itemName, itemPrice, flavor,size);
+                itemName, itemPrice, flavor, size);
 
     }
 }
