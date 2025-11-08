@@ -63,6 +63,7 @@ public class Sandwich extends Items {
 
     public double price(){
 
+
         //returning 0 until i do my calculations
         return 0;
     }
@@ -71,7 +72,7 @@ public class Sandwich extends Items {
         // make calculation for only the sandwhich price here maybe?
         switch (size) {
             case "1":
-                return  5.50;
+                return 5.50;
             case "2":
                 return  7.00;
             case "3":
@@ -101,9 +102,9 @@ public class Sandwich extends Items {
             default:
                 return 0.00;
         }
-        return basePrice * (extraPrice * extraMeat);
+        //do the base sandwich then add it by the extra price times the amount the customer will buy
+        return basePrice + (extraPrice * extraMeat);
     }
-
 
     public double cheeseToppingPrice(String size, int extraCheese){
         double basePrice = 0;
@@ -124,7 +125,8 @@ public class Sandwich extends Items {
             default:
                 return 0.00;
         }
-        return basePrice * (extraPrice * extraCheese);
+        //the same as above
+        return basePrice + (extraPrice * extraCheese);
     }
 
 
