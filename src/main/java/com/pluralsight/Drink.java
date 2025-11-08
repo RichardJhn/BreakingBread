@@ -17,34 +17,36 @@ public class Drink extends Items{
 
     public double price(){
         //return 0 until i make the calculations
-        Scanner scanner = new Scanner(System.in);
-
-            System.out.print("What kind of Drink would you like: ");
-            flavor = scanner.nextLine().trim();
-            System.out.println("""
-                    What size would you like?
-                    ==========================
-                    1) Small
-                    2) Medium
-                    3) Large
-                    ===========================
-                    Please enter your option
-                    ===========================""");
-        String userInput = scanner.nextLine().trim();
-            switch (userInput) {
-                case "1":
-                    itemPrice = 2.00;
-                    break;
-                case "2":
-                    itemPrice = 2.50;
-                    break;
-                case "3":
-                    itemPrice = 3.00;
-                    break;
-                default:
-                    System.out.println("Error!");
+        flavor = ConsoleHelper.promptForString
+                ("What flavor soda would you like?");
+        System.out.println("""
+             What size would you like?
+             ==========================
+             1) Small
+             2) Medium
+             3) Large
+             ===========================
+            """);
+        size = ConsoleHelper.promptForString("Enter your option:");
+        switch (size) {
+            case "1":
+                itemPrice = 2.00;
+                break;
+            case "2":
+                itemPrice = 2.50;
+                break;
+            case "3":
+                itemPrice = 3.00;
+                break;
+            default:
+                System.out.println("Error!");
             }
 
+
+            System.out.println("Your soda is: " + flavor);
+        System.out.printf
+                ("The price for this item is: $%.2f", itemPrice);
+        System.out.println();
 
         return itemPrice;
     }

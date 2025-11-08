@@ -19,6 +19,9 @@ public class Chips extends Items {
         //this will return 0 until i make the calculations
         chipType = ConsoleHelper.promptForString("What type of chips would you like");
         itemPrice = 1.50;
+        System.out.println("you chose: " + chipType);
+        System.out.printf("Price: $%.2f", itemPrice);
+        System.out.println();
         return itemPrice;
     }
 //not sure if i need a to string here but will add just in case
