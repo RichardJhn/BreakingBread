@@ -69,21 +69,15 @@ public class Sandwich extends Items {
         sandwichPrice();
         //now do if true take them to toppings and allow them to pick meat or cheese
         //if not true then create the sandwich and take them back to the order screen
-        String doYouWantToppings = ConsoleHelper.promptForString("Do you want toppings? (y/n)");
-        switch (doYouWantToppings){
-            case "y":
-            case "n":
-                break;
-            default:
-                System.out.println("Error!");
 
-        }
         return 0;
         //returning 0 until i do my calculations
     }
 
     public double sandwichPrice() {
         // make calculation for only the sandwhich price here maybe?
+
+        //to do - fix structuring
 
 
         String size = ConsoleHelper.promptForString("""
@@ -96,21 +90,31 @@ public class Sandwich extends Items {
                 Enter your option here""");
 
         String wantMeat = ConsoleHelper.promptForString("""
-                Would you like extra meat?
+                Would you like toppings?
                 1) Yes
                 2) No
-                """);
+                Enter your choice here""");
         switch (wantMeat){
             case "1":
-                System.out.println("what kind of meat would you like");
-                // to do - get user to choose from meat or cheese
+                String whatTopping = ConsoleHelper.promptForString("""
+                        What type of toppings would you like?
+                        1) Meat
+                        2) Cheese""");
+                if (whatTopping.equalsIgnoreCase("1")){
+                    String typeMeat = ConsoleHelper.promptForString("What kind of meat would you like");
+                    int amountMeat = ConsoleHelper.promptForInt("How many extra pieces");
+                    System.out.println(meatToppingPrice(typeMeat,amountMeat));
 
+                }
+                // to do - get user to choose from meat or cheese
                 break;
             case "2":
-                return 0;
+                System.out.println("You did not pick any toppings");
+                break;
             default:
                 System.out.println("Error!");
         }
+
 
         switch (size) {
             case "1":
@@ -125,6 +129,9 @@ public class Sandwich extends Items {
 
 
     }
+    public void userMeatChoice(){
+
+    }
     public double meatToppingPrice(String size, int extraMeat){
         double basePrice = 0;
         double extraPrice = 0;
@@ -137,11 +144,11 @@ public class Sandwich extends Items {
                 break;
             case "2":
                 basePrice = 2.00;
-                extraPrice = .60;
+                extraPrice = 1.00;
                 break;
             case "3":
                 basePrice = 3.00;
-                extraPrice = .90;
+                extraPrice = 1.50;
                 break;
             default:
                 return 0.00;
