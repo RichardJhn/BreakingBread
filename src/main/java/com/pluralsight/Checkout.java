@@ -13,6 +13,7 @@ public class Checkout {
                     0) Cancel
                     ============================
                     """);
+
             //to do - determine whether to take user back to home screen or order screen after confirm and cancel
 
             choice = ConsoleHelper.promptForString("Please Make your choice");
@@ -30,7 +31,6 @@ public class Checkout {
             }
 
         }
-
 
     }
 }

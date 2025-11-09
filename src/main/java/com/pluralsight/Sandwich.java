@@ -3,7 +3,6 @@ package com.pluralsight;
 public class Sandwich extends Items {
     //this will be a child class of Items as it will contain its name and price
 
-
     private String size;
     private String bread;
     private boolean toasted;
@@ -24,7 +23,6 @@ public class Sandwich extends Items {
         this.bread = bread;
         this.toasted = toasted;
         this.toppings = toppings;
-
     }
 
     public String getSize() {
@@ -60,19 +58,18 @@ public class Sandwich extends Items {
     }
     //to do - add different prices for different sizes
 
-
     public double price(){
         //to do - add prices in menu screen to assist customer in decision
         //to do - make this function just like the Drinks.price method
 
         bread = ConsoleHelper.promptForString("What kind of bread would you like");
         double totalPrice = sandwichPrice();
+
         //now do if true take them to toppings and allow them to pick meat or cheese
         //if not true then create the sandwich and take them back to the order screen
-        System.out.printf("The total price of this sandwich is $%.2f \n", totalPrice);
 
+        System.out.printf("The total price of this sandwich is $%.2f \n", totalPrice);
         return totalPrice;
-        //returning 0 until i do my calculations
     }
 
     public double sandwichPrice() {
@@ -97,6 +94,7 @@ public class Sandwich extends Items {
                 2) No
                 ========================
                 Enter your choice here""");
+
         switch (wantMeat){
             case "1":
                 String whatTopping = ConsoleHelper.promptForString("""
@@ -106,6 +104,7 @@ public class Sandwich extends Items {
                         2) Cheese
                         =====================================
                         Enter your option here""");
+
                 if (whatTopping.equalsIgnoreCase("1")){
                     String typeMeat = ConsoleHelper.promptForString("What kind of meat would you like");
                     int amountMeat = ConsoleHelper.promptForInt("How many extra pieces");
@@ -140,7 +139,6 @@ public class Sandwich extends Items {
                 System.out.println("This is not a size option");
                 return 0.00;
         }
-
         return baseSandwich + toppingsTotal;
 
     }
@@ -149,7 +147,6 @@ public class Sandwich extends Items {
     public double meatToppingPrice(String size, int extraMeat){
         double basePrice = 0;
         double extraPrice = 0;
-
 
         switch (size){
             case "1":

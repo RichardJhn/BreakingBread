@@ -30,20 +30,16 @@ public class OrderScreen {
             switch(choice.toString()){
                 case "1":
                     sandwich.price();
-
                     break;
                 case "2":
                     drink.price();
                     break;
-
                 case "3":
                     chips.price();
                     break;
-
                 case "4":
                     checkout.displayCheckout();
                     break;
-
                 case "0":
                     System.out.println("Cancelling order and returning to Home Menu");
                     return;

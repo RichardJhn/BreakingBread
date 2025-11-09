@@ -5,8 +5,8 @@ public class HomeScreen {
     //to do- make Order menu then move it here to make it neat
     public void displayHomeScreen() {
         OrderScreen orderScreen = new OrderScreen();
-
         String choice = "";
+
         while (!choice.equalsIgnoreCase("0")) {
             System.out.println("""
                     =========Home Screen=======

@@ -27,6 +27,7 @@ public class Drink extends Items{
              3) Large
              ===========================
             """);
+
         size = ConsoleHelper.promptForString("Enter your option:");
         switch (size) {
             case "1":
@@ -41,7 +42,6 @@ public class Drink extends Items{
             default:
                 System.out.println("Error!");
             }
-
 
             System.out.println("Your soda is: " + flavor);
         System.out.printf
@@ -67,4 +67,5 @@ public class Drink extends Items{
                 itemName, itemPrice, flavor, size);
 
     }
+
 }
