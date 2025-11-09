@@ -65,12 +65,15 @@ public class Sandwich extends Items {
         //to do - add prices in menu screen to assist customer in decision
         //to do - make this function just like the Drinks.price method
 
+        bread = ConsoleHelper.promptForString("What kind of bread would you like");
+
+
         System.out.println("""
                 What size sandwich would you like?
                 ==================================
-                1) small
-                2) medium
-                3) large
+                1) small ($5.50)
+                2) medium ($7.00)
+                3) large ($8.50)
                 ==================================""");
 
 
