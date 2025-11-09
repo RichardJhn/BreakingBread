@@ -66,9 +66,27 @@ public class Sandwich extends Items {
         //to do - make this function just like the Drinks.price method
 
         bread = ConsoleHelper.promptForString("What kind of bread would you like");
+        sandwichPrice();
+        //now do if true take them to toppings and allow them to pick meat or cheese
+        //if not true then create the sandwich and take them back to the order screen
+        String doYouWantToppings = ConsoleHelper.promptForString("Do you want toppings? (y/n)");
+        switch (doYouWantToppings){
+            case "y":
+            case "n":
+                break;
+            default:
+                System.out.println("Error!");
+
+        }
+        return 0;
+        //returning 0 until i do my calculations
+    }
+
+    public double sandwichPrice() {
+        // make calculation for only the sandwhich price here maybe?
 
 
-        String baseSandwich = ConsoleHelper.promptForString("""
+        String size = ConsoleHelper.promptForString("""
                 What size sandwich would you like?
                 ==================================
                 1) small ($5.50)
@@ -76,19 +94,24 @@ public class Sandwich extends Items {
                 3) large ($8.50)
                 ==================================
                 Enter your option here""");
-        //now do if true take them to toppings and allow them to pick meat or cheese
-        //if not true then create the sandwich and take them back to the order screen
 
+        String wantMeat = ConsoleHelper.promptForString("""
+                Would you like extra meat?
+                1) Yes
+                2) No
+                """);
+        switch (wantMeat){
+            case "1":
+                System.out.println("what kind of meat would you like");
+                // to do - get user to choose from meat or cheese
 
+                break;
+            case "2":
+                return 0;
+            default:
+                System.out.println("Error!");
+        }
 
-
-
-        //returning 0 until i do my calculations
-        return 0;
-    }
-
-    public double sandwichPrice() {
-        // make calculation for only the sandwhich price here maybe?
         switch (size) {
             case "1":
                 return 5.50;
@@ -100,10 +123,12 @@ public class Sandwich extends Items {
                 return 0.00;
         }
 
+
     }
-    public double meatToppingPrice( int extraMeat){
+    public double meatToppingPrice(String size, int extraMeat){
         double basePrice = 0;
         double extraPrice = 0;
+
 
         switch (size){
             case "1":
@@ -128,6 +153,7 @@ public class Sandwich extends Items {
     public double cheeseToppingPrice(String size, int extraCheese){
         double basePrice = 0;
         double extraPrice = 0;
+
         switch (size){
             case "1":
                 basePrice = .75;
