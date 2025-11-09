@@ -8,6 +8,7 @@ public class OrderScreen {
         ArrayList<Items> items = new ArrayList<>();
         Drink drink = new Drink();
         Chips chips = new Chips();
+        Sandwich sandwich = new Sandwich();
 
         //to do - make code less cryptic if possible
 
@@ -28,6 +29,8 @@ public class OrderScreen {
 
             switch(choice.toString()){
                 case "1":
+                    sandwich.price();
+
                     break;
                 case "2":
                     drink.price();

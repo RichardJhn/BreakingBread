@@ -68,13 +68,17 @@ public class Sandwich extends Items {
         bread = ConsoleHelper.promptForString("What kind of bread would you like");
 
 
-        System.out.println("""
+        String baseSandwich = ConsoleHelper.promptForString("""
                 What size sandwich would you like?
                 ==================================
                 1) small ($5.50)
                 2) medium ($7.00)
                 3) large ($8.50)
-                ==================================""");
+                ==================================
+                Enter your option here""");
+        //now do if true take them to toppings and allow them to pick meat or cheese
+        //if not true then create the sandwich and take them back to the order screen
+
 
 
 
@@ -97,7 +101,7 @@ public class Sandwich extends Items {
         }
 
     }
-    public double meatToppingPrice(String size, int extraMeat){
+    public double meatToppingPrice( int extraMeat){
         double basePrice = 0;
         double extraPrice = 0;
 
