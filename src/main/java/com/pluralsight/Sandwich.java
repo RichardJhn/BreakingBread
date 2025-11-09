@@ -62,6 +62,18 @@ public class Sandwich extends Items {
 
 
     public double price(){
+        //to do - add prices in menu screen to assist customer in decision
+        //to do - make this function just like the Drinks.price method
+
+        System.out.println("""
+                What size sandwich would you like?
+                ==================================
+                1) small
+                2) medium
+                3) large
+                ==================================""");
+
+
 
 
         //returning 0 until i do my calculations
