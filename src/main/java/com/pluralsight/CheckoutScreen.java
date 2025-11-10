@@ -1,8 +1,8 @@
 package com.pluralsight;
-public class Checkout {
+public class CheckoutScreen {
     public void displayCheckout(){
 
-        //make a simple checkout menu for now
+        //make a simple checkoutScreen menu for now
         //to do - code the deletion of all options and add a method to save to new file for every new customer
 
         String choice = "";

@@ -1,17 +1,16 @@
 package com.pluralsight;
-import java.util.ArrayList;
+
 public class OrderScreen {
 
     public void loadOrderScreen(){
-        //HomeScreen homeScreen = new HomeScreen();
-        Checkout checkout = new Checkout();
-        ArrayList<Items> items = new ArrayList<>();
-        Drink drink = new Drink();
-        Chips chips = new Chips();
-        Sandwich sandwich = new Sandwich();
+        CheckoutScreen checkoutScreen = new CheckoutScreen();
 
-        //to do - only have prompts inside of screen classes
-
+        //fixed formatting
+        //to do
+        //- in processAddSandwich, allow customer to try again if they make an error
+        //- add a set menu so when user inputs something not on menu, output "error try again!"
+        //- add toasted option
+        //- add included toppings that cost nothing -> (Will be part of set menu and user will not be able to choose anything else)
 
         String choice = "";
         while (!choice.equalsIgnoreCase("0")){
@@ -31,7 +30,6 @@ public class OrderScreen {
             switch(choice.toString()){
                 case "1":
                     processAddSandwich();
-                    //sandwich.price();
                     break;
                 case "2":
                     proccessAddDrink();
@@ -40,7 +38,7 @@ public class OrderScreen {
                     processAddChips();
                     break;
                 case "4":
-                    checkout.displayCheckout();
+                    checkoutScreen.displayCheckout();
                     break;
                 case "0":
                     System.out.println("Cancelling order and returning to Home Menu");
@@ -115,7 +113,7 @@ public class OrderScreen {
         //saving the total for toppings
         sandwich.setToppingsTotal(toppingsTotal);
         //calling sandwhich.price to calculate using the saved toppings total
-        System.out.println(sandwich.price());
+        sandwich.price();
 
     }
 

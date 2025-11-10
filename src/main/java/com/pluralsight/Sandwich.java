@@ -78,6 +78,7 @@ public class Sandwich extends Items {
         //now do if true take them to toppings and allow them to pick meat or cheese
         //if not true then create the sandwich and take them back to the order screen
 
+
         System.out.printf("The total price of this sandwich is $%.2f \n", totalPrice);
         return totalPrice;
     }
@@ -108,9 +109,6 @@ public class Sandwich extends Items {
         return baseSandwich;
     }
 
-
-    public void userMeatChoice(){
-    }
     public double meatToppingPrice(String size, int extraMeat){
         double basePrice = 0;
         double extraPrice = 0;
