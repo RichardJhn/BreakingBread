@@ -7,6 +7,7 @@ public class Sandwich extends Items {
     private String bread;
     private boolean toasted;
     private String toppings; //to do - find a way to have my list of toppings
+    private double toppingsTotal;
 
     //to do - make a menu screen for this class
 
@@ -17,7 +18,8 @@ public class Sandwich extends Items {
         this.toasted = toasted;
         this.toppings = toppings;
     }
-    public Sandwich(){
+
+    public Sandwich() {
         super("Sandwich", 0.00);
         this.size = size;
         this.bread = bread;
@@ -56,14 +58,22 @@ public class Sandwich extends Items {
     public void setToppings(String toppings) {
         this.toppings = toppings;
     }
+
+    public double getToppingsTotal() {
+        return toppingsTotal;
+    }
+
+    public void setToppingsTotal(double toppingsTotal) {
+        this.toppingsTotal = toppingsTotal;
+    }
     //to do - add different prices for different sizes
 
-    public double price(){
+    public double price() {
         //to do - add prices in menu screen to assist customer in decision
         //to do - make this function just like the Drinks.price method
 
-        bread = ConsoleHelper.promptForString("What kind of bread would you like");
         double totalPrice = sandwichPrice();
+        totalPrice += this.toppingsTotal;
 
         //now do if true take them to toppings and allow them to pick meat or cheese
         //if not true then create the sandwich and take them back to the order screen
@@ -73,64 +83,20 @@ public class Sandwich extends Items {
     }
 
     public double sandwichPrice() {
-        // make calculation for only the sandwhich price here maybe?
+        if(size == null){
+            System.out.println("checking for null");
+            return 0;
+        }
+
         double baseSandwich = 0.00;
         double toppingsTotal = 0.00;
 
-        //to do - fix structuring
-        String size = ConsoleHelper.promptForString("""
-                What size sandwich would you like?
-                ==================================
-                1) small ($5.50)
-                2) medium ($7.00)
-                3) large ($8.50)
-                ==================================
-                Enter your option here""");
-
-        String wantMeat = ConsoleHelper.promptForString("""
-                Would you like toppings?
-                ========================
-                1) Yes
-                2) No
-                ========================
-                Enter your choice here""");
-
-        switch (wantMeat){
-            case "1":
-                String whatTopping = ConsoleHelper.promptForString("""
-                        What type of toppings would you like?
-                        =====================================
-                        1) Meat
-                        2) Cheese
-                        =====================================
-                        Enter your option here""");
-
-                if (whatTopping.equalsIgnoreCase("1")){
-                    String typeMeat = ConsoleHelper.promptForString("What kind of meat would you like");
-                    int amountMeat = ConsoleHelper.promptForInt("How many extra pieces");
-                    toppingsTotal = meatToppingPrice(size, amountMeat);
-
-                } else if (whatTopping.equalsIgnoreCase("2")) {
-                    String typeCheese = ConsoleHelper.promptForString("What kind of cheese would you like");
-                    int amountCheese = ConsoleHelper.promptForInt("How many extra prices");
-                    toppingsTotal = cheeseToppingPrice(size,amountCheese);
-
-                }
-                // to do - get user to choose from meat or cheese
-                break;
-            case "2":
-                System.out.println("You did not pick any toppings");
-                break;
-            default:
-                System.out.println("Error!");
-        }
-
         switch (size) {
             case "1":
-                baseSandwich =  5.50;
+                baseSandwich = 5.50;
                 break;
             case "2":
-                baseSandwich =   7.00;
+                baseSandwich = 7.00;
                 break;
             case "3":
                 baseSandwich = 8.50;
@@ -139,9 +105,10 @@ public class Sandwich extends Items {
                 System.out.println("This is not a size option");
                 return 0.00;
         }
-        return baseSandwich + toppingsTotal;
-
+        return baseSandwich;
     }
+
+
     public void userMeatChoice(){
     }
     public double meatToppingPrice(String size, int extraMeat){
