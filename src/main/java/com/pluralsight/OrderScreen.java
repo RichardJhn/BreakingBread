@@ -1,5 +1,7 @@
 package com.pluralsight;
 
+import java.util.Arrays;
+
 public class OrderScreen {
 
     public void loadOrderScreen(){
@@ -70,50 +72,67 @@ public class OrderScreen {
                 ==================================
                 Enter your option here""");
         sandwich.setSize(size);
+        String choice= "1";
+        while (choice.equalsIgnoreCase("1")) {
+            String wantTopping = ConsoleHelper.promptForString("""
+                    Would you like toppings?
+                    ========================
+                    1) Yes
+                    2) No
+                    ========================
+                    Enter your choice here""");
 
-        String wantMeat = ConsoleHelper.promptForString("""
-                Would you like toppings?
-                ========================
-                1) Yes
-                2) No
-                ========================
-                Enter your choice here""");
+            switch (wantTopping) {
+                case "1":
+                    String whatTopping = ConsoleHelper.promptForString("""
+                            What type of toppings would you like?
+                            =====================================
+                            1) Meat
+                            2) Cheese
+                            =====================================
+                            Enter your option here""");
 
-        switch (wantMeat){
-            case "1":
-                String whatTopping = ConsoleHelper.promptForString("""
-                        What type of toppings would you like?
-                        =====================================
-                        1) Meat
-                        2) Cheese
-                        =====================================
-                        Enter your option here""");
+                    if (whatTopping.equalsIgnoreCase("1")) {
+                        String typeMeat = ConsoleHelper.promptForString("What kind of meat would you like");
+                        Toppings toppings = new Toppings("Meat", typeMeat);
+                        int amountMeat = ConsoleHelper.promptForInt("How many extra pieces");
+                        toppingsTotal = toppings.meatToppingPrice(size, amountMeat);
+                        sandwich.setToppings(typeMeat);
 
-                if (whatTopping.equalsIgnoreCase("1")){
-                    String typeMeat = ConsoleHelper.promptForString("What kind of meat would you like");
-                    int amountMeat = ConsoleHelper.promptForInt("How many extra pieces");
-                    toppingsTotal = sandwich.meatToppingPrice(size, amountMeat);
-                    sandwich.setToppings(typeMeat);
+                    } else if (whatTopping.equalsIgnoreCase("2")) {
+                        String typeCheese = ConsoleHelper.promptForString("What kind of cheese would you like");
+                        Toppings toppings = new Toppings("Cheese",typeCheese);
+                        int amountCheese = ConsoleHelper.promptForInt("How many extra prices");
+                        toppingsTotal = toppings.cheeseToppingPrice(size,amountCheese);
+                        sandwich.setToppings(typeCheese);
 
-                } else if (whatTopping.equalsIgnoreCase("2")) {
-                    String typeCheese = ConsoleHelper.promptForString("What kind of cheese would you like");
-                    int amountCheese = ConsoleHelper.promptForInt("How many extra prices");
-                    toppingsTotal = sandwich.cheeseToppingPrice(size,amountCheese);
-                    sandwich.setToppings(typeCheese);
-
+                    }
+                    // to do - get user to choose from meat or cheese
+                    break;
+                case "2":
+                    System.out.println("You did not pick any toppings");
+                    break;
+                default:
+                    System.out.println("Error!");
+            }
+            //saving the total for toppings
+            sandwich.setToppingsTotal(toppingsTotal);
+            //calling sandwich.price to calculate using the saved toppings total
+            sandwich.price();
+            while (true){
+                String moreTopping = ConsoleHelper.promptForString("""
+                        Would you like to add more toppings?
+                        1) Yes
+                        2) No
+                        """);
+                if(moreTopping.equals("1") || moreTopping.equals("2")){
+                    break;
                 }
-                // to do - get user to choose from meat or cheese
-                break;
-            case "2":
-                System.out.println("You did not pick any toppings");
-                break;
-            default:
-                System.out.println("Error!");
+                else {
+                    System.out.println("please enter only 1 for yes and 2 for no");
+                }
+            }
         }
-        //saving the total for toppings
-        sandwich.setToppingsTotal(toppingsTotal);
-        //calling sandwhich.price to calculate using the saved toppings total
-        sandwich.price();
 
     }
 
