@@ -15,20 +15,15 @@ public class Drink extends Items{
         return size;
     }
 
-    public double price(){
-        //return 0 until i make the calculations
-        flavor = ConsoleHelper.promptForString
-                ("What flavor soda would you like?");
-        System.out.println("""
-             What size would you like?
-             ==========================
-             1) Small
-             2) Medium
-             3) Large
-             ===========================
-            """);
+    public void setFlavor(String flavor) {
+        this.flavor = flavor;
+    }
 
-        size = ConsoleHelper.promptForString("Enter your option:");
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public double price(){
         switch (size) {
             case "1":
                 itemPrice = 2.00;
@@ -43,7 +38,6 @@ public class Drink extends Items{
                 System.out.println("Error!");
             }
 
-            System.out.println("Your soda is: " + flavor);
         System.out.printf
                 ("The price for this item is: $%.2f", itemPrice);
         System.out.println();

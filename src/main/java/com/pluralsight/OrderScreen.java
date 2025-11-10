@@ -34,7 +34,7 @@ public class OrderScreen {
                     //sandwich.price();
                     break;
                 case "2":
-                    drink.price();
+                    proccessAddDrink();
                     break;
                 case "3":
                     processAddChips();
@@ -120,7 +120,27 @@ public class OrderScreen {
     }
 
     public void proccessAddDrink(){
+        Drink drink = new Drink();
+        String chosenFlavor = ConsoleHelper.promptForString
+                ("What flavor soda would you like?");
+        System.out.println("""
+             What size would you like?
+             ==========================
+             1) Small
+             2) Medium
+             3) Large
+             ===========================
+            """);
+        drink.setFlavor(chosenFlavor);
 
+        String chosenSize = ConsoleHelper.promptForString("Enter your option:");
+        drink.setSize(chosenSize);
+        System.out.println(
+                "Your soda is: " + chosenFlavor);
+        drink.price();
+
+
+        System.out.println();
     }
 
     public void processAddChips(){
