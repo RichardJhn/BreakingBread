@@ -1,5 +1,6 @@
 package com.pluralsight;
-
+import java.util.ArrayList;
+import java.util.List;
 public class Toppings {
 
     //moved toppings to its own class
@@ -16,6 +17,15 @@ public class Toppings {
     public Toppings(String name, String toppingType){
         this(name, toppingType, 0);
     }
+
+    //paid toppings
+    public static final String [] meat = {"Steak", "Pork", "Ham", "Turkey", "Salami"};
+    public static final String [] cheese = {"American", "Bleu", "Cheese","Mozzarella"};
+
+    //toppings that come with the sandwich
+    public static final String [] regularToppings = {"Lettuce", "Peppers", "Onions", "Tomatoes", "Jalapeno", "Cucumber", "Pickles","Guacamole", "Mushrooms"};
+    public static final String [] sauces = {"Mayo", "Mustard", "Ketchup", "Ranch", "Thousand Islands", "Vinaigrette"};
+    public static final String [] sides = {"sauce", "au jus"};
 
     public String getName() {
         return name;

@@ -73,12 +73,12 @@ public class OrderScreen {
                 Enter your option here""");
         sandwich.setSize(size);
         String choice= "1";
-        while (choice.equalsIgnoreCase("1")) {
+        while (choice.equals("0")) {
             String wantTopping = ConsoleHelper.promptForString("""
                     Would you like toppings?
                     ========================
                     1) Yes
-                    2) No
+                    0) No
                     ========================
                     Enter your choice here""");
 
@@ -109,7 +109,7 @@ public class OrderScreen {
                     }
                     // to do - get user to choose from meat or cheese
                     break;
-                case "2":
+                case "0":
                     System.out.println("You did not pick any toppings");
                     break;
                 default:
