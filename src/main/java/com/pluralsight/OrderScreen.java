@@ -72,16 +72,17 @@ public class OrderScreen {
                 ==================================
                 Enter your option here""");
         sandwich.setSize(size);
-        String choice= "1";
-        while (choice.equals("0")) {
+        //This assumes the first time is true and loops it once
+        String moreToppings = "1";
+        do {
             String wantTopping = ConsoleHelper.promptForString("""
-                    Would you like toppings?
+                    Please choose your topping
                     ========================
-                    1) Yes
-                    0) No
+                    1) Premium(Meat/Cheese)
+                    2) Regular
+                    0) No toppings
                     ========================
                     Enter your choice here""");
-
             switch (wantTopping) {
                 case "1":
                     String whatTopping = ConsoleHelper.promptForString("""
@@ -89,6 +90,7 @@ public class OrderScreen {
                             =====================================
                             1) Meat
                             2) Cheese
+                            3) Regular
                             =====================================
                             Enter your option here""");
 
@@ -119,20 +121,18 @@ public class OrderScreen {
             sandwich.setToppingsTotal(toppingsTotal);
             //calling sandwich.price to calculate using the saved toppings total
             sandwich.price();
-            while (true){
-                String moreTopping = ConsoleHelper.promptForString("""
-                        Would you like to add more toppings?
-                        1) Yes
-                        2) No
-                        """);
-                if(moreTopping.equals("1") || moreTopping.equals("2")){
-                    break;
-                }
-                else {
-                    System.out.println("please enter only 1 for yes and 2 for no");
-                }
-            }
-        }
+
+            moreToppings = ConsoleHelper.promptForString("""
+                    Would you like to add more toppings?
+                    ====================================
+                    1) Yes
+                    2) No
+                    Enter your choice here
+                    ====================================
+                    """);
+
+
+        } while (moreToppings.equals("1"));
 
     }
 
