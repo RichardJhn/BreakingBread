@@ -55,6 +55,7 @@ public class OrderScreen {
     public void processAddSandwich(){
         // ask the user all of the information they need while building the sandwich...
         Sandwich sandwich = new Sandwich();
+        MenuItems menu = new MenuItems();
 
         // make calculation for only the sandwhich price here maybe?
         double baseSandwich = 0.00;
@@ -103,13 +104,12 @@ public class OrderScreen {
 
                     } else if (whatTopping.equalsIgnoreCase("2")) {
                         String typeCheese = ConsoleHelper.promptForString("What kind of cheese would you like");
-                        Toppings toppings = new Toppings("Cheese",typeCheese);
+                        Toppings toppings = new Toppings("Cheese", typeCheese);
                         int amountCheese = ConsoleHelper.promptForInt("How many extra prices");
-                        toppingsTotal = toppings.cheeseToppingPrice(size,amountCheese);
+                        toppingsTotal = toppings.cheeseToppingPrice(size, amountCheese);
                         sandwich.setToppings(typeCheese);
 
                     }
-                    // to do - get user to choose from meat or cheese
                     break;
                 case "0":
                     System.out.println("You did not pick any toppings");
@@ -138,8 +138,19 @@ public class OrderScreen {
 
     public void proccessAddDrink(){
         Drink drink = new Drink();
-        String chosenFlavor = ConsoleHelper.promptForString
-                ("What flavor soda would you like?");
+        StringBuilder drinkMenu = new StringBuilder("""
+                What soda would you like
+                ========================
+                1) Coke
+                2) Pepsi
+                3) Dr.Pepper
+                4) Sprite
+                Enter your Option here""");
+        int chosenFlavor = ConsoleHelper.promptForInt(drinkMenu.toString());
+        drinkMenu.append("Enter your option here");
+        switch (chosenFlavor){
+            case 1, 2, 3, 4 -> drink.setFlavor(MenuItems.drinks[chosenFlavor -1]);
+        }
         System.out.println("""
              What size would you like?
              ==========================
@@ -148,12 +159,10 @@ public class OrderScreen {
              3) Large
              ===========================
             """);
-        drink.setFlavor(chosenFlavor);
-
         String chosenSize = ConsoleHelper.promptForString("Enter your option:");
         drink.setSize(chosenSize);
         System.out.println(
-                "Your soda is: " + chosenFlavor);
+                "Your soda is: " + drink.getFlavor());
         drink.price();
 
 
@@ -162,10 +171,27 @@ public class OrderScreen {
 
     public void processAddChips(){
         Chips chips = new Chips();
-        String chipName = ConsoleHelper.promptForString("What type of chips would you like");
-        chips.setChipType(chipName);
+        StringBuilder chipsMenu = new StringBuilder("""
+                What chips would you like
+                ========================
+                1) Doritos
+                2) Cheetos
+                3) Takis
+                4) Hot Fries
+                """);
+        int chosenFlavor = ConsoleHelper.promptForInt(chipsMenu + "Enter your choice here: ");
+
+        switch (chosenFlavor){
+            case 1, 2, 3, 4 -> chips.setChipType(MenuItems.chips[chosenFlavor - 1]);
+            default -> {
+                System.out.println("Invalid option please try again!");
+            return;
+            }
+        }
+
+
         chips.price();
-        System.out.println("You chose: " + chipName);
+        System.out.println("You chose: " + chips.getChipType());
         System.out.printf("Price: $%.2f", chips.itemPrice);
         System.out.println();
     }
