@@ -1,12 +1,21 @@
 package com.pluralsight;
 
+import com.pluralsight.models.Order;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class OrderScreen {
 
     //order declared up here...
+    private Order currentOrder;
+
 
     public void loadOrderScreen(){
+        //creating unique order inside of the order screen
+        currentOrder = new Order("Order:" + System.currentTimeMillis(), new ArrayList<>(), LocalDateTime.now());
+
         CheckoutScreen checkoutScreen = new CheckoutScreen();
 
         //fixed formatting
@@ -42,6 +51,7 @@ public class OrderScreen {
                     processAddChips();
                     break;
                 case "4":
+                    currentOrder.displayOrder();
                     checkoutScreen.displayCheckout();
                     break;
                 case "0":
@@ -232,6 +242,7 @@ public class OrderScreen {
         } while (moreToppings.equals("1"));
         double totalSandwich = sandwich.price() + toppingsTotal;
         System.out.printf("The total for this sandwich is:  $%.2f \n", totalSandwich);
+        currentOrder.addItem(sandwich);
 
         //to do - will display what the customer has picked and tell them the price for the sandwich
 
@@ -265,8 +276,7 @@ public class OrderScreen {
                 "Your soda is: " + drink.getFlavor());
         drink.price();
 
-
-        System.out.println();
+        currentOrder.addItem(drink);
     }
 
     public void processAddChips(){
@@ -293,5 +303,7 @@ public class OrderScreen {
         System.out.println("You chose: " + chips.getChipType());
         System.out.printf("Price: $%.2f", chips.itemPrice);
         System.out.println();
+        currentOrder.addItem(chips);
     }
+
 }

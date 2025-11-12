@@ -1,6 +1,9 @@
 package com.pluralsight.models;
 
+import com.pluralsight.Chips;
+import com.pluralsight.Drink;
 import com.pluralsight.Items;
+import com.pluralsight.Sandwich;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -32,7 +35,30 @@ public class Order {
     public LocalDateTime getTime() {
         return time;
     }
+    public void addItem(Items item){
+        items.add(item);
+    }
+    public double totalPrice(){
+        double total = 0;
+        for (Items i : items){
+            total += i.price();
+        }
+        return total;
+    }
 
+    public void displayOrder() {
 
+        for (Items i : items){
+            if (i instanceof Sandwich){
+
+            }
+            if (i instanceof Drink){
+
+            }
+            if (i instanceof Chips){
+
+            }
+        }
+    }
 
 }
