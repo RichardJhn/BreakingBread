@@ -34,16 +34,14 @@ public class CheckoutScreen {
             choice = ConsoleHelper.promptForString("Please Make your choice");
 
             switch (choice.toString()){
-                case "1":
-                    confirmOrder();
+                case "1" -> confirmOrder();
                     //placeholder for Confirm
-                    break;
-                case "0":
+                case "0" -> {
                     System.out.println("Cancelling Order");
                     //placeholder for cancel
                     return;
-                default:
-                    System.out.println("Error!");
+                }
+                default ->  System.out.println("Error!");
             }
 
         }
@@ -62,5 +60,13 @@ public class CheckoutScreen {
             receipt.append("-").append(topping.getToppingType())
                     .append("Extras:").append(topping.getExtra()).append("\n");
         }
+        receipt.append(String.format("Total: $%.2f", sandwich.getPrice()));
+
+
+        receipt.append(String.format("\nTOTAL: $%.2f\n", order.totalPrice()));
+        receipt.append("======================================\n");
+        receipt.append("Thank you for your order!\n");
+
+        System.out.println(receipt);
     }
 }
