@@ -61,8 +61,31 @@ public class OrderScreen {
         double baseSandwich = 0.00;
         double toppingsTotal = 0.00;
         //this is the get bread
-        String typeBread = ConsoleHelper.promptForString("What kind of bread would you like");
-        sandwich.setBread(typeBread);
+        //make this like my chips and drinks and pull from my list made
+        boolean onTheMenu = false;
+        while (!onTheMenu) {
+            StringBuilder breadMenu = new StringBuilder("""
+                    Which type of bread would you like?
+                    ==================================
+                    1) Wheat
+                    2) White
+                    3) Rye
+                    4) French
+                    5) Whole Grain
+                    ===================================
+                    Enter your Option here""");
+            int chosenBread = ConsoleHelper.promptForInt(breadMenu.toString());
+            switch (chosenBread) {
+                case 1, 2, 3, 4, 5 -> {
+                    sandwich.setBread(MenuItems.bread[chosenBread - 1]);
+                    onTheMenu = true;
+                }
+                default -> {
+                    System.out.println("Error please try again");
+                }
+
+            }
+        }
         //to do - fix structuring
         String size = ConsoleHelper.promptForString("""
                 What size sandwich would you like?
@@ -74,10 +97,13 @@ public class OrderScreen {
                 Enter your option here""");
         sandwich.setSize(size);
         //This assumes the first time is true and loops it once
+
         String moreToppings = "1";
+
+        //use my set regular, sides and premiums from menu item class
         do {
             String wantTopping = ConsoleHelper.promptForString("""
-                    Please choose your topping
+                    Please choose your additions
                     ========================
                     1) Premium(Meat/Cheese)
                     2) Regular
@@ -95,21 +121,65 @@ public class OrderScreen {
                             =====================================
                             Enter your option here""");
 
-                    if (whatTopping.equalsIgnoreCase("1")) {
-                        String typeMeat = ConsoleHelper.promptForString("What kind of meat would you like");
-                        Toppings toppings = new Toppings("Meat", typeMeat);
-                        int amountMeat = ConsoleHelper.promptForInt("How many extra pieces");
-                        toppingsTotal = toppings.meatToppingPrice(size, amountMeat);
-                        sandwich.setToppings(typeMeat);
+                    switch (whatTopping){
+                        case "1" -> {
+                            StringBuilder meatMenu = new StringBuilder("""
+                                    What type of meat would you like?
+                                    ==================================
+                                    1) Steak
+                                    2) Pork
+                                    3) Ham
+                                    4) Turkey
+                                    5) Salami
+                                    ===================================
+                                    Enter your choice here""");
+                            int chosenMeat = ConsoleHelper.promptForInt(meatMenu.toString());
+                            String typeMeat = MenuItems.meat[chosenMeat -1];
+                            sandwich.setToppings(typeMeat);
+                            //add extra meat
 
-                    } else if (whatTopping.equalsIgnoreCase("2")) {
-                        String typeCheese = ConsoleHelper.promptForString("What kind of cheese would you like");
-                        Toppings toppings = new Toppings("Cheese", typeCheese);
-                        int amountCheese = ConsoleHelper.promptForInt("How many extra prices");
-                        toppingsTotal = toppings.cheeseToppingPrice(size, amountCheese);
-                        sandwich.setToppings(typeCheese);
+                            int extraMeat = ConsoleHelper.promptForInt("How many extra Pieces");
+                            Toppings toppings = new Toppings("Meat", typeMeat);
+                            toppingsTotal = toppings.meatToppingPrice(size,extraMeat);
 
+                        }
+                        case "2" -> {
+                            StringBuilder cheeseMenu = new StringBuilder("""
+                                    What type of cheese would you like?
+                                    ===================================
+                                    1) American
+                                    2) Bleu
+                                    3) Three-Cheese
+                                    4) Mozzarella
+                                    ====================================
+                                    Enter your option here""");
+                            int chosenCheese = ConsoleHelper.promptForInt(cheeseMenu.toString());
+                            String typeCheese = MenuItems.cheese[chosenCheese -1];
+                            sandwich.setToppings(typeCheese);
+                            //may not print in receipts as I would like to
+                            int extraCheese = ConsoleHelper.promptForInt("How many extra pieces would you like");
+                            Toppings toppings = new Toppings("Cheese",typeCheese);
+                            toppingsTotal = toppings.cheeseToppingPrice(size,extraCheese);
+
+                        }
                     }
+
+//                    if (whatTopping.equalsIgnoreCase("1")) {
+//                        String typeMeat = ConsoleHelper.promptForString("What kind of meat would you like");
+//                        Toppings toppings = new Toppings("Meat", typeMeat);
+//                        int amountMeat = ConsoleHelper.promptForInt("How many extra pieces");
+//                        toppingsTotal = toppings.meatToppingPrice(size, amountMeat);
+//                        sandwich.setToppings(typeMeat);
+//
+//
+//                    } else if (whatTopping.equalsIgnoreCase("2")) {
+//                        String typeCheese = ConsoleHelper.promptForString("What kind of cheese would you like");
+//                        Toppings toppings = new Toppings("Cheese", typeCheese);
+//                        int amountCheese = ConsoleHelper.promptForInt("How many extra prices");
+//                        toppingsTotal = toppings.cheeseToppingPrice(size, amountCheese);
+//                        sandwich.setToppings(typeCheese);
+
+                    //}
                     break;
                 case "0":
                     System.out.println("You did not pick any toppings");
@@ -127,12 +197,13 @@ public class OrderScreen {
                     ====================================
                     1) Yes
                     2) No
-                    Enter your choice here
                     ====================================
-                    """);
+                    Enter your choice here""");
 
 
         } while (moreToppings.equals("1"));
+
+        //to do - will display what the customer has picked and tell them the price for the sandwich
 
     }
 
@@ -147,7 +218,6 @@ public class OrderScreen {
                 4) Sprite
                 Enter your Option here""");
         int chosenFlavor = ConsoleHelper.promptForInt(drinkMenu.toString());
-        drinkMenu.append("Enter your option here");
         switch (chosenFlavor){
             case 1, 2, 3, 4 -> drink.setFlavor(MenuItems.drinks[chosenFlavor -1]);
         }

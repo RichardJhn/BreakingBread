@@ -5,7 +5,7 @@ public class MenuItems {
     //----------------------------------------------------
     //paid toppings
     public static final String [] meat = {"Steak", "Pork", "Ham", "Turkey", "Salami"};
-    public static final String [] cheese = {"American", "Bleu", "Cheese","Mozzarella"};
+    public static final String [] cheese = {"American", "Bleu", "Three-Cheese","Mozzarella"};
 
     //toppings that come with the sandwich
     public static final String [] regularToppings = {"Lettuce", "Peppers", "Onions", "Tomatoes", "Jalapeno", "Cucumber", "Pickles","Guacamole", "Mushrooms"};
