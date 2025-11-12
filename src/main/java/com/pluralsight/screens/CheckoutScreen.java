@@ -1,4 +1,7 @@
-package com.pluralsight;
+package com.pluralsight.screens;
+
+import com.pluralsight.ConsoleHelper;
+
 public class CheckoutScreen {
     public void displayCheckout(){
 

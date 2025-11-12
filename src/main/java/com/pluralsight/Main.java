@@ -1,5 +1,7 @@
 package com.pluralsight;
 
+import com.pluralsight.screens.HomeScreen;
+
 public class Main {
     public static void main(String[] Args){
         //try to keep main less than 5 lines of code or so

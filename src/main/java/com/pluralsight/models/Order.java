@@ -3,9 +3,8 @@ package com.pluralsight.models;
 import com.pluralsight.Chips;
 import com.pluralsight.Drink;
 import com.pluralsight.Items;
-import com.pluralsight.Sandwich;
+import com.Sellables.Sandwich;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +41,7 @@ public class Order {
     public double totalPrice(){
         double total = 0;
         for (Items i : items){
-            total += i.price();
+            total += i.getPrice();
         }
         return total;
     }
@@ -56,28 +55,28 @@ public class Order {
 
         for (Items i : items){
             if (i instanceof Sandwich sandwich){
-                System.out.println("=====Sandwich=====");
+                System.out.println("=====Sandwich=====\n");
                 System.out.println("Bread : " + sandwich.getBread());
                 System.out.println("Size : " + sandwich.getSize());
                 //add if its toasted or not
-                System.out.printf("Price : $%.2f \n", sandwich.price());
-                System.out.println("====================================\n");
+                System.out.printf("Price : $%.2f \n\n", sandwich.getPrice());
+                //System.out.println("====================================\n");
 
             }
             if (i instanceof Drink drink){
-                System.out.println("=====Drinks=====");
+                System.out.println("=====Drinks=====\n");
                 System.out.println("Flavor : " + drink.getFlavor());
                 System.out.println("Size : " + drink.getSize());
-                System.out.printf("Price : $%.2f \n", drink.price());
-                System.out.println("============================\n");
+                System.out.printf("Price : $%.2f \n\n", drink.getPrice());
+                //System.out.println("============================\n");
 
 
             }
             if (i instanceof Chips chips){
-                System.out.println("=====Chips=====");
+                System.out.println("=====Chips=====\n");
                 System.out.println(((Chips) i).getChipType());
-                System.out.printf("Price : $%.2f \n", chips.price());
-                System.out.println("==========================\n");
+                System.out.printf("Price : $%.2f \n\n", chips.getPrice());
+                //System.out.println("==========================\n");
 
             }
         }

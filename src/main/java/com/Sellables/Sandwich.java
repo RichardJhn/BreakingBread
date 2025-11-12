@@ -1,4 +1,7 @@
-package com.pluralsight;
+package com.Sellables;
+
+import com.pluralsight.Items;
+import com.pluralsight.Topping;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,13 +12,13 @@ public class Sandwich extends Items {
     private String size;
     private String bread;
     private boolean toasted;
-    private List<String> toppings; //to do - find a way to have my list of toppings
+    private List<Topping> toppings; //to do - find a way to have my list of toppings
     private double toppingsTotal;
 
     //to do - make a menu screen for this class
 
-    public Sandwich(String itemName, double itemPrice, String size, String bread, boolean toasted, String toppings) {
-        super(itemName, itemPrice);
+    public Sandwich(String itemName, String size, String bread, boolean toasted) {
+        super(itemName);
         this.size = size;
         this.bread = bread;
         this.toasted = toasted;
@@ -23,7 +26,7 @@ public class Sandwich extends Items {
     }
 
     public Sandwich() {
-        super("Sandwich", 0.00);
+        super("Sandwich");
         this.size = size;
         this.bread = bread;
         this.toasted = toasted;
@@ -54,15 +57,15 @@ public class Sandwich extends Items {
         this.toasted = toasted;
     }
 
-    public List<String> getToppings(){
+    public List<Topping> getToppings(){
         return toppings;
     }
 
-    public void addTopping(String topping) {
+    public void addTopping(Topping topping) {
         toppings.add(topping);
     }
 
-    public void setToppings(List<String> toppings) {
+    public void setToppings(List<Topping> toppings) {
         this.toppings = toppings;
     }
 
@@ -75,43 +78,34 @@ public class Sandwich extends Items {
     }
     //to do - add different prices for different sizes
 
-    public double price() {
+    public double getPrice() {
+
         //to do - add prices in menu screen to assist customer in decision
         //to do - make this function just like the Drinks.price method
-
-        double totalPrice = sandwichPrice();
-
-        //now do if true take them to toppings and allow them to pick meat or cheese
-        //if not true then create the sandwich and take them back to the order screen
-
-        return totalPrice;
-    }
-
-    public double sandwichPrice() {
         if(size == null){
             System.out.println("checking for null");
             return 0;
         }
 
-        double baseSandwich = 0.00;
-        double toppingsTotal = 0.00;
 
-        switch (size) {
-            case "1":
-                baseSandwich = 5.50;
-                break;
-            case "2":
-                baseSandwich = 7.00;
-                break;
-            case "3":
-                baseSandwich = 8.50;
-                break;
-            default:
+        double baseSandwich = switch (size) {
+            case "1" -> 5.50;
+            case "2" -> 7.00;
+            case "3" -> 8.50;
+
+            default -> {
                 System.out.println("This is not a size option");
-                return 0.00;
-        }
-        return baseSandwich;
-    }
+                yield 0.00;
+            }
+            };
+        double toppingsTotal = 0.00;
+            for(Topping topping : toppings){
+                toppingsTotal += topping.getPrice(size);
+            }
+            double total = baseSandwich + toppingsTotal;
+            return total;
 
+
+    }
 
 }

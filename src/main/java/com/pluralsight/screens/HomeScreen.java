@@ -1,4 +1,6 @@
-package com.pluralsight;
+package com.pluralsight.screens;
+
+import com.pluralsight.ConsoleHelper;
 
 public class HomeScreen {
     //will be using this class as my home screen

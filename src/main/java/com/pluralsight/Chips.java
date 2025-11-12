@@ -1,10 +1,10 @@
 package com.pluralsight;
 public class Chips extends Items {
     //chipType will be the brand or flavor they choose
-     private String chipType;
+     public String chipType;
 
-    public Chips(String itemName, double itemPrice, String chipType) {
-        super(itemName, itemPrice);
+    public Chips(String itemName, String chipType) {
+        super(itemName);
         this.chipType = chipType;
     }
 
@@ -13,18 +13,17 @@ public class Chips extends Items {
     }
 
     public Chips(){
-        super("Chips",0.00);
+        super("Chips");
         this.chipType = chipType;
     }
 
     public String getChipType() {
         return chipType;
     }
-    public double price(){
+    public double getPrice(){
         //this will return 0 until i make the calculations
-        itemPrice = 1.50;
-        return itemPrice;
+        return 1.50;
     }
-//not sure if i need a to string here but will add just in case
+//not sure if i need a to-string here but will add just in case
 
 }

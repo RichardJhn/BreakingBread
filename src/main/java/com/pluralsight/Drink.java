@@ -23,34 +23,31 @@ public class Drink extends Items{
         this.size = size;
     }
 
-    public double price(){
+    public  double getPrice(){
         switch (size) {
             case "1":
-                itemPrice = 2.00;
-                break;
+                return  2.00;
             case "2":
-                itemPrice = 2.50;
-                break;
+                return  2.50;
             case "3":
-                itemPrice = 3.00;
-                break;
+                return  3.00;
             default:
                 System.out.println("Error!");
             }
 
         System.out.printf
-                ("The price for this item is: $%.2f", itemPrice);
+                ("The price for this item is: $%.2f", size);
         System.out.println();
 
-        return itemPrice;
+        return 0;
     }
-    public Drink(String itemName, double itemPrice, String flavor, String size) {
-        super(itemName,itemPrice);
+    public Drink(String itemName, String flavor, String size) {
+        super(itemName);
         this.flavor = flavor;
         this.size = size;
     }
     public Drink(){
-        super("Drink",0.00);
+        super("Drink");
         this.flavor = flavor;
         this.size = size;
     }
@@ -58,7 +55,7 @@ public class Drink extends Items{
     @Override
     public String toString() {
         return String.format("%s| $%.2f |%s | %d | %s | %s | %s |",
-                itemName, itemPrice, flavor, size);
+                itemName, flavor, size);
 
     }
 

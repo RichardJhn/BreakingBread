@@ -1,10 +1,11 @@
-package com.pluralsight;
+package com.pluralsight.screens;
 
+import com.Sellables.Sandwich;
+import com.pluralsight.*;
 import com.pluralsight.models.Order;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class OrderScreen {
 
@@ -148,12 +149,12 @@ public class OrderScreen {
                                     Enter your choice here""");
                             int chosenMeat = ConsoleHelper.promptForInt(meatMenu.toString());
                             String typeMeat = MenuItems.meat[chosenMeat -1];
-                            sandwich.addTopping(typeMeat);
-                            //add extra meat
 
                             int extraMeat = ConsoleHelper.promptForInt("How many extra Pieces");
-                            Toppings toppings = new Toppings("Meat", typeMeat);
-                            toppingsTotal += toppings.meatToppingPrice(size,extraMeat);
+                            Topping topping = new Topping("Meat", typeMeat, extraMeat);
+                            sandwich.addTopping(topping);
+
+                            System.out.printf("%s has been added. Total price: $%.2f \n",typeMeat, sandwich.getPrice());
 
                         }
                         case "2" -> {
@@ -168,11 +169,12 @@ public class OrderScreen {
                                     Enter your option here""");
                             int chosenCheese = ConsoleHelper.promptForInt(cheeseMenu.toString());
                             String typeCheese = MenuItems.cheese[chosenCheese -1];
-                            sandwich.addTopping(typeCheese);
                             //may not print in receipts as I would like to
                             int extraCheese = ConsoleHelper.promptForInt("How many extra pieces would you like");
-                            Toppings toppings = new Toppings("Cheese",typeCheese);
-                            toppingsTotal += toppings.cheeseToppingPrice(size,extraCheese);
+                            Topping topping = new Topping("Cheese",typeCheese, extraCheese);
+
+                            sandwich.addTopping(topping);
+                            System.out.printf("%s has been added. Total price: $%.2f \n",typeCheese, sandwich.getPrice());
 
                         }
 
@@ -180,7 +182,7 @@ public class OrderScreen {
 
 //                    if (whatTopping.equalsIgnoreCase("1")) {
 //                        String typeMeat = ConsoleHelper.promptForString("What kind of meat would you like");
-//                        Toppings toppings = new Toppings("Meat", typeMeat);
+//                        Topping toppings = new Topping("Meat", typeMeat);
 //                        int amountMeat = ConsoleHelper.promptForInt("How many extra pieces");
 //                        toppingsTotal = toppings.meatToppingPrice(size, amountMeat);
 //                        sandwich.setToppings(typeMeat);
@@ -188,7 +190,7 @@ public class OrderScreen {
 //
 //                    } else if (whatTopping.equalsIgnoreCase("2")) {
 //                        String typeCheese = ConsoleHelper.promptForString("What kind of cheese would you like");
-//                        Toppings toppings = new Toppings("Cheese", typeCheese);
+//                        Topping toppings = new Topping("Cheese", typeCheese);
 //                        int amountCheese = ConsoleHelper.promptForInt("How many extra prices");
 //                        toppingsTotal = toppings.cheeseToppingPrice(size, amountCheese);
 //                        sandwich.setToppings(typeCheese);
@@ -216,9 +218,10 @@ public class OrderScreen {
                     }
                     //using the same logic as my processAddChips
                     String typeRegular = MenuItems.regularToppings[chosenRegular - 1];
-                    Toppings toppings = new Toppings("Regular", typeRegular);
-                    sandwich.addTopping(typeRegular);
+                    Topping topping = new Topping("Regular", typeRegular, 0);
+                    sandwich.addTopping(topping);
                     //placeholder for regular toppings
+                    System.out.println(typeRegular + " has been added. No extra charges.");
                     break;
                 case "0":
                     System.out.println("You did not pick any toppings");
@@ -240,7 +243,7 @@ public class OrderScreen {
 
 
         } while (moreToppings.equals("1"));
-        double totalSandwich = sandwich.price() + toppingsTotal;
+        double totalSandwich = sandwich.getPrice() + toppingsTotal;
         System.out.printf("The total for this sandwich is:  $%.2f \n", totalSandwich);
         currentOrder.addItem(sandwich);
 
@@ -274,7 +277,7 @@ public class OrderScreen {
         drink.setSize(chosenSize);
         System.out.println(
                 "Your soda is: " + drink.getFlavor());
-        drink.price();
+        drink.getPrice();
 
         currentOrder.addItem(drink);
     }
@@ -299,9 +302,9 @@ public class OrderScreen {
             }
         }
 
-        chips.price();
+        chips.getPrice();
         System.out.println("You chose: " + chips.getChipType());
-        System.out.printf("Price: $%.2f", chips.itemPrice);
+        System.out.printf("Price: $%.2f", chips.getPrice());
         System.out.println();
         currentOrder.addItem(chips);
     }
