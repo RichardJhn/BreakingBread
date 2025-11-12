@@ -63,6 +63,7 @@ public class OrderScreen {
         //this is the get bread
         //make this like my chips and drinks and pull from my list made
         boolean onTheMenu = false;
+        //to do - have a fail-safe for errors
         while (!onTheMenu) {
             StringBuilder breadMenu = new StringBuilder("""
                     Which type of bread would you like?
@@ -113,12 +114,11 @@ public class OrderScreen {
             switch (wantTopping) {
                 case "1":
                     String whatTopping = ConsoleHelper.promptForString("""
-                            What type of toppings would you like?
-                            =====================================
+                            What type of premium toppings would you like?
+                            =============================================
                             1) Meat
                             2) Cheese
-                            3) Regular
-                            =====================================
+                            =============================================
                             Enter your option here""");
 
                     switch (whatTopping){
@@ -140,7 +140,7 @@ public class OrderScreen {
 
                             int extraMeat = ConsoleHelper.promptForInt("How many extra Pieces");
                             Toppings toppings = new Toppings("Meat", typeMeat);
-                            toppingsTotal = toppings.meatToppingPrice(size,extraMeat);
+                            toppingsTotal += toppings.meatToppingPrice(size,extraMeat);
 
                         }
                         case "2" -> {
@@ -159,9 +159,10 @@ public class OrderScreen {
                             //may not print in receipts as I would like to
                             int extraCheese = ConsoleHelper.promptForInt("How many extra pieces would you like");
                             Toppings toppings = new Toppings("Cheese",typeCheese);
-                            toppingsTotal = toppings.cheeseToppingPrice(size,extraCheese);
+                            toppingsTotal += toppings.cheeseToppingPrice(size,extraCheese);
 
                         }
+
                     }
 
 //                    if (whatTopping.equalsIgnoreCase("1")) {
@@ -181,6 +182,31 @@ public class OrderScreen {
 
                     //}
                     break;
+                case "2":
+                    int chosenRegular = ConsoleHelper.promptForInt("""
+                            Which of the normal toppings would you like?
+                            ============================================
+                            1) Lettuce
+                            2) Peppers
+                            3) Onions
+                            4) Tomatoes
+                            5) Jalapeno
+                            6) Cucumber
+                            7) Pickles
+                            8) Guacamole
+                            9) Mushrooms
+                            =============================================
+                            Enter your option here""");
+                    if(chosenRegular < 1 || chosenRegular > MenuItems.regularToppings.length){
+                       System.out.println("Error try again");
+                        break;
+                    }
+                    //using the same logic as my processAddChips
+                    String typeRegular = MenuItems.regularToppings[chosenRegular - 1];
+                    Toppings toppings = new Toppings("Regular", typeRegular);
+                    sandwich.setToppings(typeRegular);
+                    //placeholder for regular toppings
+                    break;
                 case "0":
                     System.out.println("You did not pick any toppings");
                     break;
@@ -190,7 +216,6 @@ public class OrderScreen {
             //saving the total for toppings
             sandwich.setToppingsTotal(toppingsTotal);
             //calling sandwich.price to calculate using the saved toppings total
-            sandwich.price();
 
             moreToppings = ConsoleHelper.promptForString("""
                     Would you like to add more toppings?
@@ -202,6 +227,8 @@ public class OrderScreen {
 
 
         } while (moreToppings.equals("1"));
+        double totalSandwich = sandwich.price() + toppingsTotal;
+        System.out.printf("The total for this sandwich is:  $%.2f \n", totalSandwich);
 
         //to do - will display what the customer has picked and tell them the price for the sandwich
 
@@ -258,7 +285,6 @@ public class OrderScreen {
             return;
             }
         }
-
 
         chips.price();
         System.out.println("You chose: " + chips.getChipType());
