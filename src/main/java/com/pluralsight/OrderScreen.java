@@ -4,6 +4,8 @@ import java.util.Arrays;
 
 public class OrderScreen {
 
+    //order declared up here...
+
     public void loadOrderScreen(){
         CheckoutScreen checkoutScreen = new CheckoutScreen();
 
@@ -55,7 +57,8 @@ public class OrderScreen {
     public void processAddSandwich(){
         // ask the user all of the information they need while building the sandwich...
         Sandwich sandwich = new Sandwich();
-        MenuItems menu = new MenuItems();
+        //MenuItems menu = new MenuItems();
+
 
         // make calculation for only the sandwhich price here maybe?
         double baseSandwich = 0.00;
@@ -135,7 +138,7 @@ public class OrderScreen {
                                     Enter your choice here""");
                             int chosenMeat = ConsoleHelper.promptForInt(meatMenu.toString());
                             String typeMeat = MenuItems.meat[chosenMeat -1];
-                            sandwich.setToppings(typeMeat);
+                            sandwich.addTopping(typeMeat);
                             //add extra meat
 
                             int extraMeat = ConsoleHelper.promptForInt("How many extra Pieces");
@@ -155,7 +158,7 @@ public class OrderScreen {
                                     Enter your option here""");
                             int chosenCheese = ConsoleHelper.promptForInt(cheeseMenu.toString());
                             String typeCheese = MenuItems.cheese[chosenCheese -1];
-                            sandwich.setToppings(typeCheese);
+                            sandwich.addTopping(typeCheese);
                             //may not print in receipts as I would like to
                             int extraCheese = ConsoleHelper.promptForInt("How many extra pieces would you like");
                             Toppings toppings = new Toppings("Cheese",typeCheese);
@@ -204,7 +207,7 @@ public class OrderScreen {
                     //using the same logic as my processAddChips
                     String typeRegular = MenuItems.regularToppings[chosenRegular - 1];
                     Toppings toppings = new Toppings("Regular", typeRegular);
-                    sandwich.setToppings(typeRegular);
+                    sandwich.addTopping(typeRegular);
                     //placeholder for regular toppings
                     break;
                 case "0":

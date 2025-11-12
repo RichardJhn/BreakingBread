@@ -1,12 +1,15 @@
 package com.pluralsight;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Sandwich extends Items {
     //this will be a child class of Items as it will contain its name and price
 
     private String size;
     private String bread;
     private boolean toasted;
-    private String toppings; //to do - find a way to have my list of toppings
+    private List<String> toppings; //to do - find a way to have my list of toppings
     private double toppingsTotal;
 
     //to do - make a menu screen for this class
@@ -16,7 +19,7 @@ public class Sandwich extends Items {
         this.size = size;
         this.bread = bread;
         this.toasted = toasted;
-        this.toppings = toppings;
+        this.toppings = new ArrayList<>();
     }
 
     public Sandwich() {
@@ -24,7 +27,7 @@ public class Sandwich extends Items {
         this.size = size;
         this.bread = bread;
         this.toasted = toasted;
-        this.toppings = toppings;
+        this.toppings = new ArrayList<>();
     }
 
     public String getSize() {
@@ -51,11 +54,15 @@ public class Sandwich extends Items {
         this.toasted = toasted;
     }
 
-    public String getToppings() {
+    public List<String> getToppings(){
         return toppings;
     }
 
-    public void setToppings(String toppings) {
+    public void addTopping(String topping) {
+        toppings.add(topping);
+    }
+
+    public void setToppings(List<String> toppings) {
         this.toppings = toppings;
     }
 
