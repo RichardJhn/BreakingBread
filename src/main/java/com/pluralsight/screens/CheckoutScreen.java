@@ -1,8 +1,20 @@
 package com.pluralsight.screens;
 
+import com.Sellables.Sandwich;
 import com.pluralsight.ConsoleHelper;
+import com.pluralsight.Topping;
+import com.pluralsight.models.Order;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class CheckoutScreen {
+    private Order order;
+    private Sandwich sandwich;
+    public CheckoutScreen(Order order){
+        this.order = order;
+    }
+
     public void displayCheckout(){
 
         //make a simple checkoutScreen menu for now
@@ -23,6 +35,7 @@ public class CheckoutScreen {
 
             switch (choice.toString()){
                 case "1":
+                    confirmOrder();
                     //placeholder for Confirm
                     break;
                 case "0":
@@ -35,5 +48,19 @@ public class CheckoutScreen {
 
         }
 
+    }
+
+    private void confirmOrder(){
+        //Building receipts
+        StringBuilder receipt = new StringBuilder();
+        receipt.append("=======Breaking Bread Receipt========\n");
+        receipt.append("Date :").append(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))).append("\n");
+        receipt.append("Bread : ").append(sandwich.getBread()).append("\n");
+        //receipt.append("Toasted :")
+        receipt.append("Toppings: \n");
+        for (Topping topping : sandwich.getToppings()){
+            receipt.append("-").append(topping.getToppingType())
+                    .append("Extras:").append(topping.getExtra()).append("\n");
+        }
     }
 }

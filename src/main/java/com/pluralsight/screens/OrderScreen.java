@@ -13,11 +13,12 @@ public class OrderScreen {
     private Order currentOrder;
 
 
+
     public void loadOrderScreen(){
         //creating unique order inside of the order screen
         currentOrder = new Order("Order:" + System.currentTimeMillis(), new ArrayList<>(), LocalDateTime.now());
 
-        CheckoutScreen checkoutScreen = new CheckoutScreen();
+
 
         //fixed formatting
         //to do
@@ -53,6 +54,7 @@ public class OrderScreen {
                     break;
                 case "4":
                     currentOrder.displayOrder();
+                    CheckoutScreen checkoutScreen = new CheckoutScreen(currentOrder);
                     checkoutScreen.displayCheckout();
                     break;
                 case "0":
@@ -69,7 +71,6 @@ public class OrderScreen {
         // ask the user all of the information they need while building the sandwich...
         Sandwich sandwich = new Sandwich();
         //MenuItems menu = new MenuItems();
-
 
         // make calculation for only the sandwhich price here maybe?
         double baseSandwich = 0.00;
