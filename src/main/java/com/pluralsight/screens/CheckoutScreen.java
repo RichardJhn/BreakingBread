@@ -37,9 +37,8 @@ public class CheckoutScreen {
                 case "1" -> confirmOrder();
                     //placeholder for Confirm
                 case "0" -> {
-                    System.out.println("Cancelling Order");
+                    cancelOrder();
                     //placeholder for cancel
-                    return;
                 }
                 default ->  System.out.println("Error!");
             }
@@ -92,6 +91,10 @@ public class CheckoutScreen {
 //                    .append("Extras:").append(topping.getExtra()).append("\n");
 //        }
 //        receipt.append(String.format("Total: $%.2f", sandwich.getPrice()));
+                order = null;
+
+                HomeScreen homeScreen = new HomeScreen();
+                homeScreen.displayHomeScreen();
 //
 //
 
@@ -121,5 +124,11 @@ public class CheckoutScreen {
         }
 
 
+    }
+    public void cancelOrder(){
+        order = null;
+        System.out.println("Order has been canceled. Returning to the Home Screen");
+        HomeScreen homeScreen = new HomeScreen();
+        homeScreen.displayHomeScreen();
     }
 }

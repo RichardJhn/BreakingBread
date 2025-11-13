@@ -6,18 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4d0552cf-7d31-4904-95cf-43dcde113c2a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Receipts/Receipt_20251112_232936.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Receipts/Receipt_20251112_232954.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Receipts/Receipt_20251112_232957.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Receipts20251112_231247.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Receipts20251112_232409.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Receipts20251112_232759.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Receipts_20251112_231805.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Sellables/Sandwich.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Sellables/Sandwich.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/Drink.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/Drink.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/models/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/models/Order.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/screens/CheckoutScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/screens/CheckoutScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/screens/OrderScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/screens/OrderScreen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
