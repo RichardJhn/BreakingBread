@@ -89,9 +89,9 @@ public class Sandwich extends Items {
 
 
         double baseSandwich = switch (size) {
-            case "1" -> 5.50;
-            case "2" -> 7.00;
-            case "3" -> 8.50;
+            case "Small" -> 5.50;
+            case "Medium" -> 7.00;
+            case "Large" -> 8.50;
 
             default -> {
                 System.out.println("This is not a size option");

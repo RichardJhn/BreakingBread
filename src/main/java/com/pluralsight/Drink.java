@@ -24,23 +24,21 @@ public class Drink extends Items{
     }
 
     public  double getPrice(){
-        switch (size) {
-            case "1":
-                return  2.00;
-            case "2":
-                return  2.50;
-            case "3":
-                return  3.00;
-            default:
-                System.out.println("Error!");
+        double baseDrink = switch (size) {
+            case "Small" -> 2.00;
+            case "Medium" -> 2.50;
+            case "Large" -> 3.00;
+            default -> {
+                System.out.println("Not a size option!");
+                yield 0.00;
             }
 
-        System.out.printf
-                ("The price for this item is: $%.2f", size);
-        System.out.println();
+            };
 
-        return 0;
+
+        return baseDrink;
     }
+
     public Drink(String itemName, String flavor, String size) {
         super(itemName);
         this.flavor = flavor;

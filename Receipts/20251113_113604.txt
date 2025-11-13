@@ -1,24 +1,23 @@
 =======Breaking Bread Receipt========
-Date :2025-11-12 23:24:09
+Date :2025-11-13 11:36:04
 Sandwich :
-Bread : Wheat
-Size : 1
+Bread : White
+Toasted : Yes
+Size : Small
 Toppings :
-    - American (extra : 2)
     - Pork (extra : 2)
-    - Lettuce
-  Subtotal: $8.85
+  Subtotal: $5.50
+
+Drink:
+  Flavor: Coke
+  Size: 1
+  Price: $2.00
 
 Chips:
   Type: Doritos
   Price: $1.50
 
-Drink:
-  Flavor: Coke
-  Size: 3
-  Price: $3.00
 
-
- Total : $13.35
+ Total : $9.00
 ======================================
 Thank you for your order!

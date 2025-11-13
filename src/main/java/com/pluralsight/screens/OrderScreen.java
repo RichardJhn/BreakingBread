@@ -67,7 +67,7 @@ public class OrderScreen {
         }
     }
 
-    public void processAddSandwich(){
+    public void processAddSandwich() {
         // ask the user all of the information they need while building the sandwich...
         Sandwich sandwich = new Sandwich();
         //MenuItems menu = new MenuItems();
@@ -103,15 +103,34 @@ public class OrderScreen {
             }
         }
         //to do - fix structuring
-        String size = ConsoleHelper.promptForString("""
-                What size sandwich would you like?
-                ==================================
-                1) small ($5.50)
-                2) medium ($7.00)
-                3) large ($8.50)
-                ==================================
-                Enter your option here""");
-        sandwich.setSize(size);
+        Boolean validSize = false;
+        while (!validSize){
+            int size = ConsoleHelper.promptForInt("""
+                    What size sandwich would you like?
+                    ==================================
+                    1) small ($5.50)
+                    2) medium ($7.00)
+                    3) large ($8.50)
+                    ==================================
+                    Enter your option here""");
+        switch (size) {
+            case 1 -> {sandwich.setSize("Small");
+            validSize = true;
+            }
+            case 2 -> {
+                sandwich.setSize("Medium");
+                validSize = true;
+            }
+            case 3 -> {
+                sandwich.setSize("Large");
+                validSize = true;
+            }
+            default -> {
+                System.out.println("invalid option!");
+            }
+        }
+
+    }
         //This assumes the first time is true and loops it once
 
         String moreToppings = "1";
@@ -244,12 +263,35 @@ public class OrderScreen {
 
 
         } while (moreToppings.equals("1"));
+
+        // Prompting for toasted or not
+        int toasted = 0;
+        while (true) {
+            toasted = ConsoleHelper.promptForInt("""
+                    Would you like your bread toasted?
+                    =================================
+                    1) Yes
+                    2) No
+                    ==================================
+                    Enter your option here""");
+            if (toasted == 1) {
+                sandwich.setToasted(true);
+                System.out.println("Your sandwich will be toasted");
+                break;
+            }else if (toasted == 2){
+                sandwich.setToasted(false);
+                System.out.println("Your sandwich will not be toasted");
+                break;
+            }
+             else {
+                System.out.println("Error please enter a 1 for yes and 2 for no");
+            }
+
+        }
+        //to do - will display what the customer has picked and tell them the price for the sandwich
         double totalSandwich = sandwich.getPrice() + toppingsTotal;
         System.out.printf("The total for this sandwich is:  $%.2f \n", totalSandwich);
         currentOrder.addItem(sandwich);
-
-        //to do - will display what the customer has picked and tell them the price for the sandwich
-
     }
 
     public void proccessAddDrink(){
@@ -274,8 +316,18 @@ public class OrderScreen {
              3) Large
              ===========================
             """);
-        String chosenSize = ConsoleHelper.promptForString("Enter your option:");
-        drink.setSize(chosenSize);
+        int chosenSize = ConsoleHelper.promptForInt("Enter your option ");
+        String sizeDrink = switch (chosenSize){
+            case 1 -> "Small";
+            case 2 -> "Medium";
+            case 3 -> "Large";
+            default -> {
+                System.out.println("Invalid size option!");
+                yield "Small";
+                //this will automatically make it small in case there's an error
+            }
+        };
+        drink.setSize(sizeDrink);
         System.out.println(
                 "Your soda is: " + drink.getFlavor());
         drink.getPrice();

@@ -58,7 +58,7 @@ public class Order {
                 System.out.println("=====Sandwich=====\n");
                 System.out.println("Bread : " + sandwich.getBread());
                 System.out.println("Size : " + sandwich.getSize());
-                //add if its toasted or not
+                System.out.println("Toasted : " + (sandwich.isToasted() ? "Yes" : "No"));
                 System.out.printf("Price : $%.2f \n\n", sandwich.getPrice());
                 //System.out.println("====================================\n");
 

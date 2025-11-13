@@ -1,0 +1,11 @@
+=======Breaking Bread Receipt========
+Date :2025-11-13 13:12:04
+Drink:
+  Flavor: Coke
+  Size: Medium
+  Price: $2.50
+
+
+ Total : $2.50
+======================================
+Thank you for your order!

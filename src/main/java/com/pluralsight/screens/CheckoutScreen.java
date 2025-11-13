@@ -59,6 +59,7 @@ public class CheckoutScreen {
             if (item instanceof Sandwich sandwich) {
                 receipt.append("Sandwich :\n");
                 receipt.append("Bread : ").append(sandwich.getBread()).append("\n");
+                receipt.append("Toasted : ").append(sandwich.isToasted() ? "Yes" : "No").append("\n");
                 receipt.append("Size : ").append(sandwich.getSize()).append("\n");
                 receipt.append("Toppings :\n");
                 for (Topping topping : sandwich.getToppings()) {

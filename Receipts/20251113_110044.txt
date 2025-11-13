@@ -1,17 +1,13 @@
 =======Breaking Bread Receipt========
-Date :2025-11-12 23:29:36
+Date :2025-11-13 11:00:44
 Sandwich :
 Bread : Wheat
-Size : 1
+Size : 2
 Toppings :
-    - Pork (extra : 3)
-  Subtotal: $8.00
-
-Chips:
-  Type: Cheetos
-  Price: $1.50
+    - Pork (extra : 2)
+  Subtotal: $11.00
 
 
- Total : $9.50
+ Total : $11.00
 ======================================
 Thank you for your order!
