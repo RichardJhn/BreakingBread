@@ -1,0 +1,13 @@
+=======Breaking Bread Receipt========
+Date :2025-11-12 23:27:59
+Sandwich :
+Bread : Wheat
+Size : 2
+Toppings :
+    - Pork (extra : 2)
+  Subtotal: $11.00
+
+
+ Total : $11.00
+======================================
+Thank you for your order!

@@ -111,7 +111,7 @@ public class CheckoutScreen {
                 java.nio.file.Files.createDirectory((folderPath));
             }
 
-            String filename = "Receipts" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyMMdd_HHmmss")) + ".txt";
+            String filename = "Receipts/" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyMMdd_HHmmss")) + ".txt";
             java.nio.file.Files.writeString(java.nio.file.Paths.get(filename), receipt.toString());
             System.out.println("Order saved to : " + filename );
 

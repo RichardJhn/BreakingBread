@@ -6,6 +6,8 @@ import java.time.format.DateTimeFormatter;
 
 public class OrderWriter {
 
+    //May scrap - ended up moving it to checkout
+
     public static void saveOrderToFIle(String orderDetails){
         //this will have the time the order was made
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd- HH:mm:ss");
