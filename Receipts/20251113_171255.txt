@@ -1,0 +1,15 @@
+=======Breaking Bread Receipt========
+Date :2025-11-13 17:12:55
+Sandwich :
+Bread : Wheat
+Toasted : Yes
+Size : Small
+Toppings :
+    - Mushroom Soup
+    - Mayo
+  Subtotal: $5.50
+
+
+ Total : $5.50
+======================================
+Thank you for your order!

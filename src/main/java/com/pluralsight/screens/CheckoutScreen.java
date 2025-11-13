@@ -62,7 +62,7 @@ public class CheckoutScreen {
                 receipt.append("Size : ").append(sandwich.getSize()).append("\n");
                 receipt.append("Toppings :\n");
                 for (Topping topping : sandwich.getToppings()) {
-                    receipt.append("    - ").append(topping.getToppingType());
+                    receipt.append("    - ").append(topping.getName());
                     if (topping.getExtra() > 0) {
                         receipt.append(" (extra : ").append(topping.getExtra()).append(")");
                     }
@@ -124,7 +124,6 @@ public class CheckoutScreen {
         //this makes order empty and takes them back to home menu
         order = null;
         System.out.println("Order has been canceled. Returning to the Home Screen");
-        HomeScreen homeScreen = new HomeScreen();
-        homeScreen.displayHomeScreen();
+        return;
     }
 }
