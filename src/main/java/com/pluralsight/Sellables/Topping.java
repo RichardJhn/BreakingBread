@@ -1,10 +1,8 @@
-package com.pluralsight;
-
-import java.util.Locale;
+package com.pluralsight.Sellables;
 
 public class Topping {
-
     //moved toppings to its own class
+
     private String name;
     private String toppingType;
     private int extra;
@@ -18,7 +16,6 @@ public class Topping {
     public Topping(String name, String toppingType){
         this(name, toppingType, 0);
     }
-
 
     public String getName() {
         return name;
@@ -36,7 +33,6 @@ public class Topping {
 
         return "";
     }
-
 
     public double meatToppingPrice(String size, int extraMeat){
         double basePrice = 0;

@@ -1,29 +1,17 @@
 package com.pluralsight.screens;
-
-import com.Sellables.Sandwich;
-import com.pluralsight.*;
+import com.pluralsight.Sellables.*;
+import com.pluralsight.models.ConsoleHelper;
 import com.pluralsight.models.Order;
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class OrderScreen {
-
     //order declared up here...
     private Order currentOrder;
 
     public void loadOrderScreen(){
         //creating unique order inside of the order screen
         currentOrder = new Order("Order:" + System.currentTimeMillis(), new ArrayList<>(), LocalDateTime.now());
-
-
-
-        //fixed formatting
-        //to do
-        //- in processAddSandwich, allow customer to try again if they make an error
-        //- add a set menu so when user inputs something not on menu, output "error try again!"
-        //- add toasted option
-        //- add included toppings that cost nothing -> (Will be part of set menu and user will not be able to choose anything else)
 
         String choice = "";
         while (!choice.equalsIgnoreCase("0")){
@@ -66,17 +54,14 @@ public class OrderScreen {
     }
 
     public void processAddSandwich() {
-        // ask the user all of the information they need while building the sandwich...
+        // ask the user all of the information they need while building the sandwich
         Sandwich sandwich = new Sandwich();
-        //MenuItems menu = new MenuItems();
 
-        // make calculation for only the sandwhich price here maybe?
         double baseSandwich = 0.00;
         double toppingsTotal = 0.00;
-        //this is the get bread
-        //make this like my chips and drinks and pull from my list made
+
         boolean onTheMenu = false;
-        //to do - have a fail-safe for errors
+        //prompt user for their bread preference
         while (!onTheMenu) {
             StringBuilder breadMenu = new StringBuilder("""
                     Which type of bread would you like?
@@ -100,7 +85,7 @@ public class OrderScreen {
 
             }
         }
-        //to do - fix structuring
+
         Boolean validSize = false;
         while (!validSize){
             int size = ConsoleHelper.promptForInt("""
@@ -130,10 +115,8 @@ public class OrderScreen {
 
     }
         //This assumes the first time is true and loops it once
-
         String moreToppings = "1";
-
-        //use my set regular, sides and premiums from menu item class
+        //uses my set regular, sides and premiums from menu item class
         do {
             String wantTopping = ConsoleHelper.promptForString("""
                     Please choose your additions
@@ -329,7 +312,7 @@ public class OrderScreen {
             }
 
         }
-        //to do - will display what the customer has picked and tell them the price for the sandwich
+
         double totalSandwich = sandwich.getPrice() + toppingsTotal;
         System.out.printf("The total for this sandwich is:  $%.2f \n", totalSandwich);
         currentOrder.addItem(sandwich);

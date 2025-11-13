@@ -1,9 +1,7 @@
-package com.pluralsight;
+package com.pluralsight.Sellables;
 
 public abstract class Items {
-
-    //to do - make this a parent class
-    //make all menu items a child of this abstract class
+    //makes all menu items a child of this abstract class
 
     public String  itemName;
 
@@ -19,12 +17,7 @@ public abstract class Items {
         this.itemName = itemName;
     }
 
-
     // Abstract method that forces subclasses to define how their price is calculated
     public abstract double getPrice();
 
-    @Override
-    public String toString() {
-        return String.format("%s | %.2f", itemName);
-    }
 }

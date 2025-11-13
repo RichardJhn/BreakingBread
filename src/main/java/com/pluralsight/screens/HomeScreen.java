@@ -1,17 +1,13 @@
 package com.pluralsight.screens;
 
-import com.pluralsight.ConsoleHelper;
+import com.pluralsight.models.ConsoleHelper;
 
 public class HomeScreen {
     //will be using this class as my home screen
-    //to do- make Order menu then move it here to make it neat
-
-    //might blend this in with order screen to create a UserInterface class?
-
     public void displayHomeScreen() {
         OrderScreen orderScreen = new OrderScreen();
         String choice = "";
-
+        // if the user inputs 0, they will exit the application
         while (!choice.equalsIgnoreCase("0")) {
             System.out.println("""
                     =========Home Screen=======

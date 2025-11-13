@@ -1,19 +1,15 @@
 package com.pluralsight.models;
-
-import com.pluralsight.Chips;
-import com.pluralsight.Drink;
-import com.pluralsight.Items;
-import com.Sellables.Sandwich;
-import com.pluralsight.Topping;
-
+import com.pluralsight.Sellables.Chips;
+import com.pluralsight.Sellables.Drink;
+import com.pluralsight.Sellables.Items;
+import com.pluralsight.Sellables.Sandwich;
+import com.pluralsight.Sellables.Topping;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
-    //for formating how my receipts will be printed?
-
-    //to do - use this class to calculate customers total order cost
+    //this class takes care of a single order
 
     private String orderID;
     private List<Items> items;
@@ -46,13 +42,12 @@ public class Order {
         }
         return total;
     }
-
+    //this displays the order as the customer has picked out
     public void displayOrder() {
 
         System.out.println("=======Order Summary======");
         System.out.println("Order id : " + orderID);
         System.out.println("Time : " + time);
-
 
         for (Items i : items){
             if (i instanceof Sandwich sandwich){
@@ -69,7 +64,6 @@ public class Order {
                     System.out.println();
                 }
                 System.out.printf("Price : $%.2f \n\n", sandwich.getPrice());
-                //System.out.println("====================================\n");
 
             }
             if (i instanceof Drink drink){
@@ -77,15 +71,12 @@ public class Order {
                 System.out.println("Flavor : " + drink.getFlavor());
                 System.out.println("Size : " + drink.getSize());
                 System.out.printf("Price : $%.2f \n\n", drink.getPrice());
-                //System.out.println("============================\n");
-
 
             }
             if (i instanceof Chips chips){
                 System.out.println("=====Chips=====\n");
                 System.out.println(((Chips) i).getChipType());
                 System.out.printf("Price : $%.2f \n\n", chips.getPrice());
-                //System.out.println("==========================\n");
 
             }
         }

@@ -1,9 +1,7 @@
-package com.pluralsight;
-import java.util.Scanner;
-public class Drink extends Items{
-    //will have my drink options
-    //to do - determine how I will be adding flavors
-    //do not touch this class
+package com.pluralsight.Sellables;
+
+public class Drink extends Items {
+   //drink determines its price based on size
     private String flavor;
     private String size;
 
@@ -46,13 +44,6 @@ public class Drink extends Items{
         super("Drink");
         this.flavor = flavor;
         this.size = size;
-    }
-    //adding to string just in case its needed
-    @Override
-    public String toString() {
-        return String.format("%s| $%.2f |%s | %d | %s | %s | %s |",
-                itemName, flavor, size);
-
     }
 
 }

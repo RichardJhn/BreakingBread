@@ -1,4 +1,5 @@
-package com.pluralsight;
+package com.pluralsight.Sellables;
+
 public class Chips extends Items {
     //chipType will be the brand or flavor they choose
      public String chipType;
@@ -24,6 +25,5 @@ public class Chips extends Items {
         //this will return 0 until i make the calculations
         return 1.50;
     }
-//not sure if i need a to-string here but will add just in case
 
 }

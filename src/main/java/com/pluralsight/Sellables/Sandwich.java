@@ -1,7 +1,4 @@
-package com.Sellables;
-
-import com.pluralsight.Items;
-import com.pluralsight.Topping;
+package com.pluralsight.Sellables;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,0 +1,23 @@
+=======Breaking Bread Receipt========
+Date :2025-11-13 18:24:47
+Sandwich :
+Bread : Wheat
+Toasted : Yes
+Size : Small
+Toppings :
+    - Steak (extra : 2)
+  Subtotal: $7.50
+
+Drink:
+  Flavor: Coke
+  Size: Large
+  Price: $3.00
+
+Chips:
+  Type: Doritos
+  Price: $1.50
+
+
+ Total : $12.00
+======================================
+Thank you for your order!

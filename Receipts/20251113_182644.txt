@@ -1,0 +1,15 @@
+=======Breaking Bread Receipt========
+Date :2025-11-13 18:26:44
+Drink:
+  Flavor: Coke
+  Size: Medium
+  Price: $2.50
+
+Chips:
+  Type: Doritos
+  Price: $1.50
+
+
+ Total : $4.00
+======================================
+Thank you for your order!

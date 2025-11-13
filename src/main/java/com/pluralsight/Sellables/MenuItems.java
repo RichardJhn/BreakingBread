@@ -1,4 +1,4 @@
-package com.pluralsight;
+package com.pluralsight.Sellables;
 
 public class MenuItems {
     //move all array to this class for better understanding
