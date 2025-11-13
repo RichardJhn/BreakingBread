@@ -91,25 +91,16 @@ public class CheckoutScreen {
 //                    .append("Extras:").append(topping.getExtra()).append("\n");
 //        }
 //        receipt.append(String.format("Total: $%.2f", sandwich.getPrice()));
-                order = null;
-
-                HomeScreen homeScreen = new HomeScreen();
-                homeScreen.displayHomeScreen();
-//
-//
-
-
 
             }
         }
         receipt.append(String.format("\n Total : $%.2f\n", order.totalPrice()));
         receipt.append("======================================\n");
         receipt.append("Thank you for your order!\n");
-
         System.out.println(receipt);
 
-        try{
 
+        try{
             java.nio.file.Path folderPath = java.nio.file.Paths.get("Receipts");
             if(!java.nio.file.Files.exists((folderPath))){
                 java.nio.file.Files.createDirectory((folderPath));
@@ -122,10 +113,15 @@ public class CheckoutScreen {
         }catch (Exception e){
             System.out.println("Error saving to file!");
         }
+        //this makes the order empty and deleted everything
+        order = null;
 
+        HomeScreen homeScreen = new HomeScreen();
+        homeScreen.displayHomeScreen();
 
     }
     public void cancelOrder(){
+        //this makes order empty and takes them back to home menu
         order = null;
         System.out.println("Order has been canceled. Returning to the Home Screen");
         HomeScreen homeScreen = new HomeScreen();

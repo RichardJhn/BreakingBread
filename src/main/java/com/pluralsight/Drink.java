@@ -32,10 +32,7 @@ public class Drink extends Items{
                 System.out.println("Not a size option!");
                 yield 0.00;
             }
-
             };
-
-
         return baseDrink;
     }
 
@@ -44,6 +41,7 @@ public class Drink extends Items{
         this.flavor = flavor;
         this.size = size;
     }
+
     public Drink(){
         super("Drink");
         this.flavor = flavor;

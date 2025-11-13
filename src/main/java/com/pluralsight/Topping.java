@@ -1,5 +1,7 @@
 package com.pluralsight;
 
+import java.util.Locale;
+
 public class Topping {
 
     //moved toppings to its own class
@@ -86,25 +88,24 @@ public class Topping {
 
     public double getPrice(String size) {
         //deturmine the price, using already existing knowledge of type and extra, and passed in value of size...
+        size = size.toLowerCase();
+        switch (size){
+            case "small" : size = "1"; break;
+            case "medium" : size = "2"; break;
+            case "large" : size = "3"; break;
+        }
+
         if (toppingType == null) return 0.00;
 
-        if (toppingType.equals("Steak") ||
-                toppingType.equalsIgnoreCase("Pork") ||
-                toppingType.equalsIgnoreCase("Ham") ||
-                toppingType.equalsIgnoreCase("Turkey") ||
-                toppingType.equalsIgnoreCase("Salami")) {
-
-            return meatToppingPrice(size, extra);
-            //place holder
+        if (toppingType.equalsIgnoreCase("meat")) {
+            return meatToppingPrice(size, extra);//place holder
 
         }
-        if(toppingType.equalsIgnoreCase("American") ||
-                toppingType.equalsIgnoreCase("Bleu") ||
-                toppingType.equalsIgnoreCase("Three-Cheese") ||
-                toppingType.equalsIgnoreCase("Mozzarella")) {
+        if(toppingType.equalsIgnoreCase("cheese")) {
         return cheeseToppingPrice(size, extra);
          }
-         return 0.0;
+        System.out.println("Error");
+         return 0.00;
     }
 
 

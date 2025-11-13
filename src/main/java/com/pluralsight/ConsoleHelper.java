@@ -24,6 +24,7 @@ public class ConsoleHelper {
         scanner.nextLine();
         return result;
     }
+
     public static Boolean promptForBoolean(String prompt) {
         System.out.print(prompt + ": ");
         boolean result = scanner.nextBoolean();

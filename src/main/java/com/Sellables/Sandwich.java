@@ -69,9 +69,6 @@ public class Sandwich extends Items {
         this.toppings = toppings;
     }
 
-    public double getToppingsTotal() {
-        return toppingsTotal;
-    }
 
     public void setToppingsTotal(double toppingsTotal) {
         this.toppingsTotal = toppingsTotal;

@@ -171,7 +171,7 @@ public class OrderScreen {
                             String typeMeat = MenuItems.meat[chosenMeat -1];
 
                             int extraMeat = ConsoleHelper.promptForInt("How many extra Pieces");
-                            Topping topping = new Topping("Meat", typeMeat, extraMeat);
+                            Topping topping = new Topping(typeMeat,"Meat", extraMeat);
                             sandwich.addTopping(topping);
 
                             System.out.printf("%s has been added. Total price: $%.2f \n",typeMeat, sandwich.getPrice());
@@ -191,7 +191,7 @@ public class OrderScreen {
                             String typeCheese = MenuItems.cheese[chosenCheese -1];
                             //may not print in receipts as I would like to
                             int extraCheese = ConsoleHelper.promptForInt("How many extra pieces would you like");
-                            Topping topping = new Topping("Cheese",typeCheese, extraCheese);
+                            Topping topping = new Topping(typeCheese,"Cheese", extraCheese);
 
                             sandwich.addTopping(topping);
                             System.out.printf("%s has been added. Total price: $%.2f \n",typeCheese, sandwich.getPrice());
