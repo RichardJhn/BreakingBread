@@ -4,6 +4,7 @@ import com.pluralsight.Chips;
 import com.pluralsight.Drink;
 import com.pluralsight.Items;
 import com.Sellables.Sandwich;
+import com.pluralsight.Topping;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -59,6 +60,14 @@ public class Order {
                 System.out.println("Bread : " + sandwich.getBread());
                 System.out.println("Size : " + sandwich.getSize());
                 System.out.println("Toasted : " + (sandwich.isToasted() ? "Yes" : "No"));
+
+                System.out.println("Toppings : ");
+                for(Topping t : sandwich.getToppings()){
+                    System.out.println(t.getName());
+                    if(t.getExtra() > 0)
+                        System.out.println("extra: " + t.getExtra());
+                    System.out.println();
+                }
                 System.out.printf("Price : $%.2f \n\n", sandwich.getPrice());
                 //System.out.println("====================================\n");
 

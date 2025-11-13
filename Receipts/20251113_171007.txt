@@ -1,13 +1,16 @@
 =======Breaking Bread Receipt========
-Date :2025-11-13 09:56:31
+Date :2025-11-13 17:10:07
 Sandwich :
 Bread : Wheat
-Size : 2
+Toasted : Yes
+Size : Small
 Toppings :
-    - American (extra : 2)
-  Subtotal: $9.70
+    - Meat (extra : 2)
+    - Sauce
+    - Side
+  Subtotal: $7.50
 
 
- Total : $9.70
+ Total : $7.50
 ======================================
 Thank you for your order!

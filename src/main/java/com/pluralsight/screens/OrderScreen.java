@@ -12,8 +12,6 @@ public class OrderScreen {
     //order declared up here...
     private Order currentOrder;
 
-
-
     public void loadOrderScreen(){
         //creating unique order inside of the order screen
         currentOrder = new Order("Order:" + System.currentTimeMillis(), new ArrayList<>(), LocalDateTime.now());
@@ -142,6 +140,8 @@ public class OrderScreen {
                     ========================
                     1) Premium(Meat/Cheese)
                     2) Regular
+                    3) Sauces
+                    4) Sides
                     0) No toppings
                     ========================
                     Enter your choice here""");
@@ -243,6 +243,47 @@ public class OrderScreen {
                     //placeholder for regular toppings
                     System.out.println(typeRegular + " has been added. No extra charges.");
                     break;
+                case "3":
+                    int chosenSauce = ConsoleHelper.promptForInt("""
+                            Which of the sauces would you like?
+                            ============================================
+                            1) Mayo
+                            2) Mustard
+                            3) Ketchup
+                            4) Ranch
+                            5) Thousand Islands
+                            6) Vinaigrette
+                            =============================================
+                            Enter your option here""");
+                    if(chosenSauce < 1 || chosenSauce > MenuItems.sauces.length) {
+                        System.out.println("Error try again");
+                        break;
+                    }
+                        String selectedSauce = MenuItems.sauces[chosenSauce - 1];
+                        Topping sauce = new Topping(selectedSauce,"Sauce", 0);
+                        sandwich.addTopping(sauce);
+                        //placeholder for regular toppings
+                        System.out.println(selectedSauce + " has been added. No extra charges.");
+                        break;
+                case "4":
+                    int chosenSide = ConsoleHelper.promptForInt("""
+                            Which of the sides would you like?
+                            ============================================
+                            1) Mushroom Soup
+                            2) Tomato Soup
+                            =============================================
+                            Enter your option here""");
+                    if(chosenSide < 1 || chosenSide > MenuItems.sides.length) {
+                        System.out.println("Error try again");
+                        break;
+                    }
+                    String selectedSide = MenuItems.sides[chosenSide -1];
+                    Topping side = new Topping(selectedSide,"Side", 0);
+                    sandwich.addTopping(side);
+                    //placeholder for regular toppings
+                    System.out.println(selectedSide + " has been added. No extra charges.");
+                    break;
+
                 case "0":
                     System.out.println("You did not pick any toppings");
                     break;
@@ -254,7 +295,7 @@ public class OrderScreen {
             //calling sandwich.price to calculate using the saved toppings total
 
             moreToppings = ConsoleHelper.promptForString("""
-                    Would you like to add more toppings?
+                    Would you like more additions?
                     ====================================
                     1) Yes
                     2) No

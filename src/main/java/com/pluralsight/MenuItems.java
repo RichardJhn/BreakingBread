@@ -13,7 +13,7 @@ public class MenuItems {
 
     //maybe add the types of bread in here too?
     public static final String [] bread = {"Wheat", "White", "Rye", "French", "Whole Grain"};
-    public static final String [] sides = {"sauce", "au jus"};
+    public static final String [] sides = {"Mushroom Soup", "Tomato Soup"};
 
     //chips list
     public static final String [] chips = {"Doritos", "Cheetos", "Takis", "Hot fries"};

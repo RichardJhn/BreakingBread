@@ -104,7 +104,6 @@ public class Topping {
         if(toppingType.equalsIgnoreCase("cheese")) {
         return cheeseToppingPrice(size, extra);
          }
-        System.out.println("Error");
          return 0.00;
     }
 

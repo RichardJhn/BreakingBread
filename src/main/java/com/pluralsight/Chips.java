@@ -11,7 +11,7 @@ public class Chips extends Items {
     public void setChipType(String chipType) {
         this.chipType = chipType;
     }
-
+//made public Chips so i wouldnt have to create a new chip
     public Chips(){
         super("Chips");
         this.chipType = chipType;
