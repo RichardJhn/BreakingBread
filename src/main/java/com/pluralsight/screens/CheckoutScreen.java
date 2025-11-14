@@ -48,13 +48,13 @@ public class CheckoutScreen {
         //Building receipts
         StringBuilder receipt = new StringBuilder();
         receipt.append("=======Breaking Bread Receipt========\n");
-        receipt.append("Date :").append(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))).append("\n");
+        receipt.append("Date :").append(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))).append("\n").append("=====================================\n");
 
         double total = 0;
         for (Items item : order.getItems()) {
             //if the child class is a sandwich it will do this -
             if (item instanceof Sandwich sandwich) {
-                receipt.append("Sandwich :\n");
+                receipt.append("Sandwich \n" + "=====================================\n");
                 receipt.append("Bread : ").append(sandwich.getBread()).append("\n");
                 receipt.append("Toasted : ").append(sandwich.isToasted() ? "Yes" : "No").append("\n");
                 receipt.append("Size : ").append(sandwich.getSize()).append("\n");
