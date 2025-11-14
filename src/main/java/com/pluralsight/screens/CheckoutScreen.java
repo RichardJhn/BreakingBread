@@ -46,6 +46,7 @@ public class CheckoutScreen {
 
     private void confirmOrder() {
         //Building receipts
+        //append adds to the end
         StringBuilder receipt = new StringBuilder();
         receipt.append("=======Breaking Bread Receipt========\n");
         receipt.append("Date :").append(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))).append("\n").append("=====================================\n");
@@ -91,6 +92,7 @@ public class CheckoutScreen {
         System.out.println(receipt);
 
         //if the folder Receipts doesn't exist it will create a new folder and name it Receipts as folderPath is named
+        //nio  is new input/output -
         try{
             java.nio.file.Path folderPath = java.nio.file.Paths.get("Receipts");
             if(!java.nio.file.Files.exists((folderPath))){
