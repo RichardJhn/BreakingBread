@@ -49,6 +49,7 @@ public class CheckoutScreen {
         //append adds to the end
         StringBuilder receipt = new StringBuilder();
         receipt.append("=======Breaking Bread Receipt========\n");
+        receipt.append(order.getOrderID()).append("\n");
         receipt.append("Date :").append(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))).append("\n").append("=====================================\n");
 
         double total = 0;

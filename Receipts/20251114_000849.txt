@@ -1,6 +1,16 @@
 =======Breaking Bread Receipt========
-Date :2025-11-13 21:41:14
+Order:1763096910903
+Date :2025-11-14 00:08:49
 =====================================
+Sandwich 
+=====================================
+Bread : Wheat
+Toasted : Yes
+Size : Small
+Toppings :
+    - Turkey (extra : 3)
+  Subtotal: $8.00
+
 Sandwich 
 =====================================
 Bread : Wheat
@@ -11,21 +21,7 @@ Toppings :
     - American (extra : 12)
   Subtotal: $39.55
 
-Drink:
-  Flavor: Coke
-  Size: Small
-  Price: $2.00
 
-Sandwich 
-=====================================
-Bread : Wheat
-Toasted : Yes
-Size : Small
-Toppings :
-    - Steak (extra : 2)
-  Subtotal: $7.50
-
-
- Total : $49.05
+ Total : $47.55
 ======================================
 Thank you for your order!
