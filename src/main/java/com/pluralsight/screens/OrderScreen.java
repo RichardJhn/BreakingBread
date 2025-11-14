@@ -391,13 +391,14 @@ public class OrderScreen {
     public void processAddSpecialty(){
         Specialties specialties = new Specialties();
         StringBuilder specialtyMenu = new StringBuilder("""
-                What chips would you like
-                ========================
+                What Specialty would you like?
+                =============================
                 1) The Breaking Of Breads!!
                 2) The Full Bread...
                 3) The Random??
+                =============================
                 """);
-        int chosenFlavor = ConsoleHelper.promptForInt(specialtyMenu + "Enter your choice here: ");
+        int chosenFlavor = ConsoleHelper.promptForInt(specialtyMenu + "Enter your choice here ");
         switch (chosenFlavor){
             case 1 -> currentOrder.addItem(specialties.theBreakingOfBreads());
             case 2 -> currentOrder.addItem(specialties.theFullBread());

@@ -1,7 +1,7 @@
 package com.pluralsight.Sellables;
 
 public class Specialties extends Sandwich{
-    // I WILL GET THIS DONE!!!!
+    //this class has the pre-set specialties
     public Sandwich theBreakingOfBreads() {
         Sandwich sandwich = new Sandwich();
         sandwich.setSize("Large");
