@@ -83,7 +83,7 @@ public class Topping {
     }
 
     public double getPrice(String size) {
-        //deturmine the price, using already existing knowledge of type and extra, and passed in value of size...
+        //determine the price, using already existing knowledge of type and extra, and passed in value of size...
         size = size.toLowerCase();
         switch (size){
             case "small" : size = "1"; break;
