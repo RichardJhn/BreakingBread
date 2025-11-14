@@ -1,0 +1,15 @@
+=======Breaking Bread Receipt========
+Date :2025-11-13 20:07:49
+Sandwich :
+Bread : Wheat
+Toasted : Yes
+Size : Large
+Toppings :
+    - Steak (extra : 10)
+    - American (extra : 12)
+  Subtotal: $39.55
+
+
+ Total : $39.55
+======================================
+Thank you for your order!

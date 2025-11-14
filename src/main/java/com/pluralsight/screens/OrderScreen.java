@@ -20,7 +20,8 @@ public class OrderScreen {
                     1) Add Sandwich
                     2) Add Drink
                     3) Add Chips
-                    4) Checkout
+                    4) Specialty
+                    5) Checkout
                     0) Cancel Order
                     ============================
                     """);
@@ -39,7 +40,9 @@ public class OrderScreen {
                     processAddChips();
                     break;
                 case "4":
-                    currentOrder.displayOrder();
+                    processAddSpecialty();
+                    break;
+                case "5":currentOrder.displayOrder();
                     CheckoutScreen checkoutScreen = new CheckoutScreen(currentOrder);
                     checkoutScreen.displayCheckout();
                     break;
@@ -384,6 +387,25 @@ public class OrderScreen {
         System.out.printf("Price: $%.2f", chips.getPrice());
         System.out.println();
         currentOrder.addItem(chips);
+    }
+    public void processAddSpecialty(){
+        Specialties specialties = new Specialties();
+        StringBuilder specialtyMenu = new StringBuilder("""
+                What chips would you like
+                ========================
+                1) The Breaking Of Breads!!
+                2) The Full Bread...
+                3) The Random??
+                """);
+        int chosenFlavor = ConsoleHelper.promptForInt(specialtyMenu + "Enter your choice here: ");
+        switch (chosenFlavor){
+            case 1 -> currentOrder.addItem(specialties.theBreakingOfBreads());
+            case 2 -> currentOrder.addItem(specialties.theFullBread());
+            case 3 -> currentOrder.addItem(specialties.theRandom());
+            default -> {
+                System.out.println("Error please try again!");
+            }
+        }
     }
 
 }
