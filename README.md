@@ -39,9 +39,7 @@ Menu Screens--------------------------------------------------------------------
 
 UML--------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-<img width="1827" height="998" alt="UML" src="https://github.com/user-attachments/assets/f9e43e15-22a5-4e21-be99-b4b0712c1898" />
-
+<img width="1893" height="1064" alt="Specialties fixed" src="https://github.com/user-attachments/assets/c2375a29-1508-469f-afb6-01bbe5af5ce2" />
 
 
 
@@ -56,6 +54,16 @@ UML-----------------------------------------------------------------------------
 
 
 
+
+
+
+
+
+Interesting piece of code---------------------------------------------------------------------------------------------------------------------------------
+
+<img width="421" height="167" alt="Favorite Code" src="https://github.com/user-attachments/assets/8a46f8e2-aa7f-40d2-935c-217177074283" />
+
+In this code, Items is a super class. The getPrice(); method is an abstract method that all of it's child classes are required to have. When this code runs, It gives different outputs depending on what the getPrice(); in that child class is used for. For example, getPrice in sandwich calculates the sandwich using the size and adds up the toppings total. This is different in the drinks class because the getPrice(); in the Drinks class only returns a price based on the size of the drink.
 
 
 
@@ -71,5 +79,4 @@ Technology used-----------------------------------------------------------------
 Sources----------------------------------------------------------------------------------------------------------------------------------------------------
 - w3 Schools
 - Brightspace
-- 
 
