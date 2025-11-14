@@ -56,7 +56,7 @@ public class CheckoutScreen {
         for (Items item : order.getItems()) {
             //if the child class is a sandwich it will do this -
             if (item instanceof Sandwich sandwich) {
-                receipt.append("Sandwich \n" + "=====================================\n");
+                receipt.append("Sandwich " + ":\n");
                 receipt.append("Bread : ").append(sandwich.getBread()).append("\n");
                 receipt.append("Toasted : ").append(sandwich.isToasted() ? "Yes" : "No").append("\n");
                 receipt.append("Size : ").append(sandwich.getSize()).append("\n");
